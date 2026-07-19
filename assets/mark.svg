@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Ordivon mark</title>
+  <desc id="desc">Four connected points surrounding a central governed boundary.</desc>
+  <rect width="64" height="64" rx="16" fill="#101720"/>
+  <path d="M18 20 32 12l14 8v16L32 52 18 44V20Z" fill="none" stroke="#8FE3CF" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="32" cy="32" r="7" fill="#B7F7E8"/>
+  <path d="M32 12v13M46 20 38 28M18 20l8 8M32 39v13" stroke="#8FE3CF" stroke-width="3" stroke-linecap="round"/>
+</svg>
