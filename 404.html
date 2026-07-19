@@ -3,19 +3,32 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="The requested Ordivon path does not exist. Use the public site directory to continue." />
     <meta name="theme-color" content="#0b0f14" />
+    <link rel="canonical" href="https://lab.ordivon.com/404.html" />
     <title>Not found — Ordivon</title>
     <link rel="icon" href="assets/mark.svg" type="image/svg+xml" />
+    <link rel="manifest" href="site.webmanifest" />
     <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="stylesheet" href="assets/umbrella.css" />
+    <script src="assets/app.js" defer></script>
   </head>
   <body>
-    <main id="main">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="./" aria-label="Ordivon home"><img src="assets/mark.svg" alt="" width="28" height="28" /><span>Ordivon</span></a>
+      <nav><a href="work/">Work</a><a href="notes/">Notes</a><a href="now/">Now</a><a href="about/">About</a><a href="contact/">Contact</a></nav>
+    </header>
+
+    <main id="main" class="page-main">
       <section class="closing" aria-labelledby="not-found-title">
         <p class="eyebrow">404 / Not found</p>
         <h1 id="not-found-title">This path has not been built.</h1>
-        <p class="lede">Return to the current Ordivon entrypoint.</p>
-        <a class="button button-primary" href="./">Go home</a>
+        <p class="lede">The site may be broader now, but unavailable services and routes are not published as placeholders.</p>
+        <div class="actions"><a class="button button-primary" href="./">Go home</a><a class="button button-secondary" href="work/">Browse work</a></div>
       </section>
     </main>
+
+    <footer class="site-footer"><div><p>© <span id="year">2026</span> Ordivon</p><p>No redirect was guessed for this missing path.</p></div><nav aria-label="Footer navigation"><a href="./">Home</a><a href="notes/">Notes</a><a href="about/">About</a><a href="contact/">Contact</a></nav></footer>
   </body>
 </html>
