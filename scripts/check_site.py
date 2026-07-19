@@ -41,6 +41,13 @@ TRACKING_PATTERNS = {
     "DoubleClick": r"doubleclick\.net",
     "cookie write": r"document\.cookie\s*=",
 }
+NETWORK_PATTERNS = {
+    "external fetch": r"\bfetch\s*\(\s*[\"'](?:https?:)?//",
+    "external dynamic import": r"\bimport\s*\(\s*[\"'](?:https?:)?//",
+    "external WebSocket": r"\bWebSocket\s*\(\s*[\"'](?:wss?:)?//",
+    "external EventSource": r"\bEventSource\s*\(\s*[\"'](?:https?:)?//",
+    "external sendBeacon": r"\bsendBeacon\s*\(\s*[\"'](?:https?:)?//",
+}
 CSS_REMOTE_PATTERN = re.compile(
     r"(?:@import\s+|url\s*\()\s*[\"']?(?:https?:)?//", re.IGNORECASE
 )
@@ -109,6 +116,14 @@ class SiteHTMLParser(HTMLParser):
 
 def fail(message: str) -> None:
     raise AssertionError(message)
+
+
+def repository_files(suffix: str) -> list[Path]:
+    return sorted(
+        path
+        for path in ROOT.rglob(f"*{suffix}")
+        if ".git" not in path.parts and path.is_file()
+    )
 
 
 def is_local_url(value: str) -> bool:
@@ -202,17 +217,23 @@ def check_html(path: Path) -> None:
             )
 
 
-def check_no_tracking() -> None:
-    candidates = [*ROOT.glob("*.html"), *ROOT.glob("assets/*.js")]
+def check_all_html() -> None:
+    for path in repository_files(".html"):
+        check_html(path)
+
+
+def check_no_tracking_or_external_network() -> None:
+    candidates = [*repository_files(".html"), *repository_files(".js")]
+    patterns = {**TRACKING_PATTERNS, **NETWORK_PATTERNS}
     for path in candidates:
         text = path.read_text(encoding="utf-8")
-        for name, pattern in TRACKING_PATTERNS.items():
+        for name, pattern in patterns.items():
             if re.search(pattern, text, flags=re.IGNORECASE):
-                fail(f"{path.relative_to(ROOT)}: prohibited tracking pattern: {name}")
+                fail(f"{path.relative_to(ROOT)}: prohibited runtime pattern: {name}")
 
 
 def check_css() -> None:
-    for path in ROOT.glob("assets/*.css"):
+    for path in repository_files(".css"):
         text = path.read_text(encoding="utf-8")
         if CSS_REMOTE_PATTERN.search(text):
             fail(f"{path.relative_to(ROOT)}: external CSS asset/import is not allowed")
@@ -222,8 +243,8 @@ def main() -> int:
     checks = (
         check_required_files,
         check_cname,
-        lambda: [check_html(path) for path in sorted(ROOT.glob("*.html"))],
-        check_no_tracking,
+        check_all_html,
+        check_no_tracking_or_external_network,
         check_css,
     )
 
@@ -234,10 +255,10 @@ def main() -> int:
         print(f"SITE CHECK FAILED: {exc}", file=sys.stderr)
         return 1
 
-    html_count = len(list(ROOT.glob("*.html")))
+    html_count = len(repository_files(".html"))
     print(
         f"SITE CHECK PASSED: {html_count} HTML files; "
-        f"CNAME={EXPECTED_CNAME}; local runtime assets only; no tracking patterns."
+        f"CNAME={EXPECTED_CNAME}; local runtime assets only; no tracking/network patterns."
     )
     return 0
 
