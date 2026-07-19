@@ -4,6 +4,22 @@ The public website and internet entrypoint for Ordivon.
 
 Current public site: <https://lab.ordivon.com>
 
+## Public identity
+
+Ordivon is a long-term public laboratory and umbrella for systems, knowledge,
+research, and trustworthy action in the AI era.
+
+The site distinguishes the umbrella from its current public work:
+
+- [`zycxfyh/Ordivon`](https://github.com/zycxfyh/Ordivon) is the explicit
+  epistemic and AI-governance foundation;
+- [`zycxfyh/FinHarness`](https://github.com/zycxfyh/FinHarness) is an applied
+  system that carries evidence, authority, review, receipt, and irreversible-action
+  governance into personal-capital decisions.
+
+Future documentation, notes, applications, APIs, and MCP services are not presented
+as available until a maintained public service actually exists.
+
 ## Current scope
 
 This repository contains a deliberately small static site:
@@ -14,9 +30,6 @@ This repository contains a deliberately small static site:
 - no analytics or cookies;
 - no external fonts, scripts, or image dependencies;
 - deployable from the repository root with GitHub Pages.
-
-The core Ordivon governance project remains separate at
-[`zycxfyh/Ordivon`](https://github.com/zycxfyh/Ordivon).
 
 ## Local preview
 
@@ -43,7 +56,8 @@ selected analytics/tracking patterns.
 ```text
 index.html                    public landing page
 404.html                      static not-found page
-assets/styles.css             visual system and responsive layout
+assets/styles.css             base visual system and responsive layout
+assets/root-ready.css         root-ready information architecture components
 assets/app.js                 minimal progressive enhancement
 assets/mark.svg               site mark and favicon
 scripts/check_site.py         dependency-free release contract
