@@ -5,17 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Ordivon is a long-term public laboratory for systems, knowledge, governance, and trustworthy action in the AI era."
+      content="Ordivon is a public laboratory for systems, knowledge, governance, and trustworthy action in the AI era."
     />
     <meta name="theme-color" content="#0b0f14" />
     <meta property="og:title" content="Ordivon" />
     <meta
       property="og:description"
-      content="A long-term laboratory for systems, knowledge, and trustworthy action."
+      content="A public laboratory for systems, knowledge, and trustworthy action."
     />
     <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://lab.ordivon.com/" />
     <title>Ordivon — Systems, knowledge, and trustworthy action</title>
     <link rel="icon" href="assets/mark.svg" type="image/svg+xml" />
+    <link rel="manifest" href="site.webmanifest" />
     <link rel="stylesheet" href="assets/styles.css" />
     <link rel="stylesheet" href="assets/umbrella.css" />
     <script src="assets/app.js" defer></script>
@@ -24,195 +26,140 @@
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header" aria-label="Primary navigation">
-      <a class="brand" href="#top" aria-label="Ordivon home">
+      <a class="brand" href="./" aria-label="Ordivon home" aria-current="page">
         <img src="assets/mark.svg" alt="" width="28" height="28" />
         <span>Ordivon</span>
       </a>
       <nav>
-        <a href="#about">About</a>
-        <a href="#work">Work</a>
-        <a href="#principles">Principles</a>
-        <a href="#direction">Direction</a>
-        <a href="#contact">Contact</a>
+        <a href="work/">Work</a>
+        <a href="notes/">Notes</a>
+        <a href="now/">Now</a>
+        <a href="about/">About</a>
+        <a href="contact/">Contact</a>
       </nav>
     </header>
 
     <main id="main">
-      <section class="hero" id="top" aria-labelledby="hero-title">
+      <section class="hero hero-compact" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow">A long-term public laboratory for the AI era</p>
+          <p class="eyebrow">A public laboratory for the AI era</p>
           <h1 id="hero-title">Build systems that can earn trust.</h1>
           <p class="lede">
-            Ordivon is a durable home for public work on systems, knowledge,
-            governance, and human–AI collaboration. The aim is not merely to make
-            machines capable, but to make consequential reasoning and action
-            inspectable, bounded, and accountable.
+            Ordivon is a durable public home for work on systems, knowledge,
+            governance, and human–AI collaboration. It connects foundational ideas,
+            engineering projects, and open research without pretending they are all at
+            the same stage.
           </p>
           <div class="actions">
-            <a class="button button-primary" href="#work">Explore current work</a>
-            <a class="button button-secondary" href="https://github.com/zycxfyh">
-              View public repositories
-            </a>
+            <a class="button button-primary" href="work/">Browse current work</a>
+            <a class="button button-secondary" href="notes/">Read the notes</a>
           </div>
         </div>
 
-        <div class="hero-system" aria-label="Ordivon operating discipline">
-          <div class="system-node">Observation</div>
-          <div class="system-line" aria-hidden="true"></div>
-          <div class="system-node">Evidence</div>
-          <div class="system-line" aria-hidden="true"></div>
-          <div class="system-node">Judgment</div>
-          <div class="system-line" aria-hidden="true"></div>
-          <div class="system-node system-node-guarded">Governed action</div>
-        </div>
+        <aside class="snapshot-card" aria-labelledby="snapshot-title">
+          <p class="surface-label surface-label-live">Public snapshot</p>
+          <h2 id="snapshot-title">What exists now</h2>
+          <dl class="snapshot-list">
+            <div><dt>Website</dt><dd>Experimental and live</dd></div>
+            <div><dt>Ordivon Core</dt><dd>Foundational project</dd></div>
+            <div><dt>FinHarness</dt><dd>Active engineering work</dd></div>
+            <div><dt>Research</dt><dd>Open foundation stage</dd></div>
+            <div><dt>App / API / MCP</dt><dd>Not published</dd></div>
+          </dl>
+        </aside>
       </section>
 
-      <section class="section" id="about" aria-labelledby="about-title">
+      <section class="section" aria-labelledby="routes-title">
         <div class="section-heading">
-          <p class="section-index">01 / About</p>
-          <h2 id="about-title">An umbrella, not a single product.</h2>
+          <p class="section-index">01 / Explore</p>
+          <h2 id="routes-title">Use the site as a directory.</h2>
         </div>
-        <div class="section-copy">
-          <p>
-            Ordivon began as an attempt to make epistemic governance executable:
-            claims should remain distinct from evidence, confidence should not become
-            authority, and important actions should leave durable receipts.
-          </p>
-          <p>
-            Those ideas are broader than one repository. They now inform other work,
-            including FinHarness, where governance principles are applied to personal
-            capital state, financial judgment, review, and simulated execution. The
-            domain is intended to outlive any single implementation.
-          </p>
-        </div>
-      </section>
-
-      <section class="section" id="work" aria-labelledby="work-title">
-        <div class="section-heading">
-          <p class="section-index">02 / Current work</p>
-          <h2 id="work-title">Ideas become systems.</h2>
-        </div>
-        <div class="work-list">
-          <article class="work-card">
-            <div>
-              <p class="status status-foundation">
-                <span aria-hidden="true"></span> Foundational project
-              </p>
-              <h3>Ordivon Core</h3>
-              <p>
-                An executable epistemology governance system for the AI era. It
-                separates claims from evidence, frames authority, classifies debt,
-                and produces honest receipts for consequential work.
-              </p>
-              <p class="work-meta">Governance method · architecture · verification</p>
-            </div>
-            <a href="https://github.com/zycxfyh/Ordivon" aria-label="Open Ordivon Core on GitHub">
-              View repository <span aria-hidden="true">↗</span>
-            </a>
-          </article>
-
-          <article class="work-card">
-            <div>
-              <p class="status status-current">
-                <span aria-hidden="true"></span> Current engineering work
-              </p>
-              <h3>FinHarness</h3>
-              <p>
-                An AI-native personal financial judgment layer for seeing capital
-                state, risk, decision rationale, reviewable options, and what happened
-                afterward. Its current execution substrate is simulated-only.
-              </p>
-              <p class="work-meta">Capital governance · human review · traceable decisions</p>
-            </div>
-            <a href="https://github.com/zycxfyh/FinHarness" aria-label="Open FinHarness on GitHub">
-              View repository <span aria-hidden="true">↗</span>
-            </a>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="principles" aria-labelledby="principles-title">
-        <div class="section-heading">
-          <p class="section-index">03 / Principles</p>
-          <h2 id="principles-title">A small set of hard boundaries.</h2>
-        </div>
-        <div class="principle-grid">
-          <article>
-            <span class="principle-number">01</span>
-            <h3>Claims are not evidence</h3>
-            <p>Every conclusion should preserve the source, transformation, and limits of what supports it.</p>
-          </article>
-          <article>
-            <span class="principle-number">02</span>
-            <h3>Confidence is not authority</h3>
-            <p>Persuasive output does not grant permission to decide, approve, publish, or execute.</p>
-          </article>
-          <article>
-            <span class="principle-number">03</span>
-            <h3>Governance is executable</h3>
-            <p>Policies should constrain real workflows, not exist only as prose beside the system.</p>
-          </article>
-          <article>
-            <span class="principle-number">04</span>
-            <h3>Receipts outlive explanations</h3>
-            <p>Important actions should leave durable evidence that can be reviewed after the conversation ends.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="direction" aria-labelledby="direction-title">
-        <div class="section-heading">
-          <p class="section-index">04 / Direction</p>
-          <h2 id="direction-title">Publish only what exists.</h2>
-        </div>
-        <div class="surface-grid">
-          <article class="surface-card">
-            <p class="surface-label surface-label-live">Public now</p>
-            <h3>Laboratory site and repositories</h3>
-            <p>
-              This site is the current experimental public surface. Canonical project
-              evidence remains in the linked GitHub repositories and their review
-              histories.
-            </p>
-          </article>
-          <article class="surface-card surface-card-muted">
-            <p class="surface-label">Reserved, not published</p>
-            <h3>Notes, documentation, applications, APIs, and MCP</h3>
-            <p>
-              These may become separate Ordivon surfaces when real maintained content
-              or services exist. No availability is implied today, and no placeholder
-              service is presented as complete.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="contact" aria-labelledby="contact-title">
-        <div class="section-heading">
-          <p class="section-index">05 / Contact</p>
-          <h2 id="contact-title">Inspect the work in public.</h2>
-        </div>
-        <div class="contact-card">
-          <p>
-            Ordivon is currently maintained through public repositories. Use GitHub to
-            inspect the source, history, issues, and review evidence, or to open a
-            project-specific discussion without exposing private contact information.
-          </p>
-          <a class="button button-secondary" href="https://github.com/zycxfyh">
-            Open the GitHub profile
+        <div class="route-grid">
+          <a class="route-card" href="work/">
+            <span>Work</span>
+            <strong>Projects and research</strong>
+            <p>See what is real, public, active, foundational, or experimental.</p>
+          </a>
+          <a class="route-card" href="notes/">
+            <span>Notes</span>
+            <strong>Ideas in public</strong>
+            <p>Short essays that connect governance principles to actual systems.</p>
+          </a>
+          <a class="route-card" href="now/">
+            <span>Now</span>
+            <strong>Current activity</strong>
+            <p>A time-bounded view of what is being built, paused, and not offered.</p>
+          </a>
+          <a class="route-card" href="about/">
+            <span>About</span>
+            <strong>Scope and boundaries</strong>
+            <p>Understand what Ordivon is, what it is not, and how its work is governed.</p>
+          </a>
+          <a class="route-card" href="contact/">
+            <span>Contact</span>
+            <strong>Public routes</strong>
+            <p>Find the correct repository, issue tracker, and reporting path.</p>
           </a>
         </div>
       </section>
 
+      <section class="section" aria-labelledby="work-title">
+        <div class="section-heading">
+          <p class="section-index">02 / Current work</p>
+          <h2 id="work-title">One idea, several forms.</h2>
+        </div>
+        <div class="work-list work-list-condensed">
+          <article class="work-card">
+            <div>
+              <p class="status status-foundation"><span aria-hidden="true"></span> Foundational</p>
+              <h3>Ordivon Core</h3>
+              <p>An executable epistemology-governance system for separating claims, evidence, authority, and action.</p>
+            </div>
+            <a href="https://github.com/zycxfyh/Ordivon">Repository <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="work-card">
+            <div>
+              <p class="status status-current"><span aria-hidden="true"></span> Active engineering</p>
+              <h3>FinHarness</h3>
+              <p>A personal-capital judgment and governance system with human review and simulated-only execution.</p>
+            </div>
+            <a href="https://github.com/zycxfyh/FinHarness">Repository <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="work-card">
+            <div>
+              <p class="status status-research"><span aria-hidden="true"></span> Open research</p>
+              <h3>Ordinary Prosperity Research</h3>
+              <p>Research on how labor income, surplus, asset ownership, resilience, and economic optionality connect.</p>
+            </div>
+            <a href="https://github.com/zycxfyh/ordinary-prosperity-research">Repository <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="principles-title">
+        <div class="section-heading">
+          <p class="section-index">03 / Shared discipline</p>
+          <h2 id="principles-title">Capability should not outrun accountability.</h2>
+        </div>
+        <div class="principle-grid">
+          <article><span class="principle-number">01</span><h3>Claims are not evidence</h3><p>Preserve sources, transformations, uncertainty, and limits.</p></article>
+          <article><span class="principle-number">02</span><h3>Confidence is not authority</h3><p>Persuasive output does not grant permission to act.</p></article>
+          <article><span class="principle-number">03</span><h3>Governance is executable</h3><p>Important boundaries belong in workflows, not only in prose.</p></article>
+          <article><span class="principle-number">04</span><h3>Receipts outlive explanations</h3><p>Consequential actions should leave durable review evidence.</p></article>
+        </div>
+      </section>
+
       <section class="closing" aria-labelledby="closing-title">
-        <p class="eyebrow">Capability should not outrun accountability.</p>
-        <h2 id="closing-title">Build slowly. Publish evidence. Keep authority bounded.</h2>
+        <p class="eyebrow">Breadth first. Evidence always.</p>
+        <h2 id="closing-title">Build useful surfaces, then deepen what proves valuable.</h2>
       </section>
     </main>
 
-    <footer>
-      <p>© <span id="year">2026</span> Ordivon</p>
-      <p>Experimental public surface · No analytics · No cookies · No external assets</p>
+    <footer class="site-footer">
+      <div><p>© <span id="year">2026</span> Ordivon</p><p>Experimental public surface · No analytics · No cookies</p></div>
+      <nav aria-label="Footer navigation">
+        <a href="work/">Work</a><a href="notes/">Notes</a><a href="now/">Now</a><a href="about/">About</a><a href="contact/">Contact</a>
+      </nav>
     </footer>
   </body>
 </html>

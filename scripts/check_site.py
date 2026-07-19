@@ -1,22 +1,35 @@
 #!/usr/bin/env python3
-"""Verify the small, static contract of the Ordivon public site."""
+"""Verify the dependency-free contract of the Ordivon public site."""
 
 from __future__ import annotations
 
+import json
 import re
 import sys
+import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
+BASE_URL = "https://lab.ordivon.com"
 EXPECTED_CNAME = "lab.ordivon.com"
 REQUIRED_FILES = (
     "index.html",
     "404.html",
+    "work/index.html",
+    "notes/index.html",
+    "notes/why-ordivon/index.html",
+    "now/index.html",
+    "about/index.html",
+    "contact/index.html",
     "assets/styles.css",
+    "assets/umbrella.css",
     "assets/app.js",
     "assets/mark.svg",
+    "site.webmanifest",
+    "robots.txt",
+    "sitemap.xml",
     ".nojekyll",
     "CNAME",
 )
@@ -64,6 +77,10 @@ class SiteHTMLParser(HTMLParser):
         self.has_lang = False
         self.has_title = False
         self.has_viewport = False
+        self.has_description = False
+        self.nav_count = 0
+        self.canonical_href = ""
+        self.manifest_href = ""
         self._inside_title = False
         self._title_parts: list[str] = []
 
@@ -75,8 +92,15 @@ class SiteHTMLParser(HTMLParser):
             self.has_lang = True
         if tag == "title":
             self._inside_title = True
-        if tag == "meta" and values.get("name", "").lower() == "viewport":
-            self.has_viewport = bool(values.get("content", "").strip())
+        if tag == "nav":
+            self.nav_count += 1
+        if tag == "meta":
+            name = values.get("name", "").lower()
+            content = values.get("content", "").strip()
+            if name == "viewport":
+                self.has_viewport = bool(content)
+            if name == "description":
+                self.has_description = bool(content)
 
         element_id = values.get("id", "").strip()
         if element_id:
@@ -101,7 +125,13 @@ class SiteHTMLParser(HTMLParser):
         if tag == "link":
             rel = {part.lower() for part in values.get("rel", "").split()}
             href = values.get("href", "").strip()
-            if href and rel.intersection({"stylesheet", "icon", "preload", "modulepreload"}):
+            if "canonical" in rel:
+                self.canonical_href = href
+            if "manifest" in rel:
+                self.manifest_href = href
+            if href and rel.intersection(
+                {"stylesheet", "icon", "preload", "modulepreload", "manifest"}
+            ):
                 self.runtime_assets.append((tag, "href", href))
 
     def handle_endtag(self, tag: str) -> None:
@@ -167,6 +197,19 @@ def resolve_local_reference(source: Path, value: str) -> Path:
     return resolved
 
 
+def html_route(path: Path) -> str:
+    relative = path.relative_to(ROOT)
+    if relative == Path("index.html"):
+        return "/"
+    if relative.name == "index.html":
+        return "/" + relative.parent.as_posix().strip("/") + "/"
+    return "/" + relative.as_posix()
+
+
+def expected_canonical(path: Path) -> str:
+    return BASE_URL + html_route(path)
+
+
 def check_required_files() -> None:
     for relative in REQUIRED_FILES:
         path = ROOT / relative
@@ -182,37 +225,54 @@ def check_cname() -> None:
 
 def check_html(path: Path) -> None:
     text = path.read_text(encoding="utf-8")
-    parser = SiteHTMLParser(path.relative_to(ROOT))
+    relative = path.relative_to(ROOT)
+    parser = SiteHTMLParser(relative)
     parser.feed(text)
     parser.close()
 
     if not parser.has_lang:
-        fail(f"{path.relative_to(ROOT)}: <html> must declare lang")
+        fail(f"{relative}: <html> must declare lang")
     if not parser.has_title:
-        fail(f"{path.relative_to(ROOT)}: non-empty <title> is required")
+        fail(f"{relative}: non-empty <title> is required")
     if not parser.has_viewport:
-        fail(f"{path.relative_to(ROOT)}: viewport meta tag is required")
+        fail(f"{relative}: viewport meta tag is required")
+    if not parser.has_description:
+        fail(f"{relative}: non-empty meta description is required")
+    if parser.nav_count < 1:
+        fail(f"{relative}: at least one navigation landmark is required")
+    if parser.canonical_href != expected_canonical(path):
+        fail(
+            f"{relative}: canonical must be {expected_canonical(path)!r}; "
+            f"found {parser.canonical_href!r}"
+        )
+    if not parser.manifest_href:
+        fail(f"{relative}: local site.webmanifest link is required")
 
     for fragment in parser.fragment_links:
         if fragment and fragment not in parser.ids:
-            fail(f"{path.relative_to(ROOT)}: missing fragment target #{fragment}")
+            fail(f"{relative}: missing fragment target #{fragment}")
 
+    resolved_local_links: list[Path] = []
     for value in parser.local_links:
         target = resolve_local_reference(path, value)
+        resolved_local_links.append(target)
         if not target.exists():
-            fail(f"{path.relative_to(ROOT)}: broken local link {value!r}")
+            fail(f"{relative}: broken local link {value!r}")
+
+    if (ROOT / "index.html").resolve() not in resolved_local_links:
+        fail(f"{relative}: page must contain a local route back to Home")
 
     for tag, attribute, value in parser.runtime_assets:
         parts = urlsplit(value)
         if value.startswith("//") or parts.scheme.lower() in REMOTE_SCHEMES:
             fail(
-                f"{path.relative_to(ROOT)}: external runtime asset is not allowed: "
+                f"{relative}: external runtime asset is not allowed: "
                 f"<{tag} {attribute}={value!r}>"
             )
         target = resolve_local_reference(path, value)
         if not target.is_file():
             fail(
-                f"{path.relative_to(ROOT)}: missing local runtime asset "
+                f"{relative}: missing local runtime asset "
                 f"<{tag} {attribute}={value!r}>"
             )
 
@@ -239,6 +299,53 @@ def check_css() -> None:
             fail(f"{path.relative_to(ROOT)}: external CSS asset/import is not allowed")
 
 
+def check_manifest() -> None:
+    path = ROOT / "site.webmanifest"
+    data = json.loads(path.read_text(encoding="utf-8"))
+    for field in ("name", "short_name", "description", "start_url", "scope"):
+        if not isinstance(data.get(field), str) or not data[field].strip():
+            fail(f"site.webmanifest: non-empty {field!r} is required")
+    if data["start_url"] != "./" or data["scope"] != "./":
+        fail("site.webmanifest: start_url and scope must both remain './'")
+    icons = data.get("icons")
+    if not isinstance(icons, list) or not icons:
+        fail("site.webmanifest: at least one icon is required")
+    for icon in icons:
+        if not isinstance(icon, dict) or not isinstance(icon.get("src"), str):
+            fail("site.webmanifest: every icon requires a string src")
+        target = resolve_local_reference(path, icon["src"])
+        if not target.is_file():
+            fail(f"site.webmanifest: missing icon {icon['src']!r}")
+
+
+def check_sitemap() -> None:
+    tree = ET.parse(ROOT / "sitemap.xml")
+    namespace = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+    locations = {
+        element.text.strip()
+        for element in tree.findall("sm:url/sm:loc", namespace)
+        if element.text and element.text.strip()
+    }
+    expected = {
+        expected_canonical(path)
+        for path in repository_files(".html")
+        if path.name != "404.html"
+    }
+    if locations != expected:
+        missing = sorted(expected - locations)
+        extra = sorted(locations - expected)
+        fail(f"sitemap.xml mismatch; missing={missing}; extra={extra}")
+
+
+def check_robots() -> None:
+    text = (ROOT / "robots.txt").read_text(encoding="utf-8")
+    expected = f"Sitemap: {BASE_URL}/sitemap.xml"
+    if expected not in text:
+        fail(f"robots.txt must contain {expected!r}")
+    if re.search(r"^\s*Disallow:\s*/\s*$", text, flags=re.IGNORECASE | re.MULTILINE):
+        fail("robots.txt must not disallow the entire public site")
+
+
 def main() -> int:
     checks = (
         check_required_files,
@@ -246,19 +353,23 @@ def main() -> int:
         check_all_html,
         check_no_tracking_or_external_network,
         check_css,
+        check_manifest,
+        check_sitemap,
+        check_robots,
     )
 
     try:
         for check in checks:
             check()
-    except (AssertionError, OSError, UnicodeError) as exc:
+    except (AssertionError, OSError, UnicodeError, ValueError, ET.ParseError) as exc:
         print(f"SITE CHECK FAILED: {exc}", file=sys.stderr)
         return 1
 
     html_count = len(repository_files(".html"))
     print(
         f"SITE CHECK PASSED: {html_count} HTML files; "
-        f"CNAME={EXPECTED_CNAME}; local runtime assets only; no tracking/network patterns."
+        f"CNAME={EXPECTED_CNAME}; sitemap/manifest/navigation consistent; "
+        "local runtime assets only; no tracking/network patterns."
     )
     return 0
 

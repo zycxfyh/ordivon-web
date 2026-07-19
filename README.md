@@ -6,17 +6,29 @@ Current public site: <https://lab.ordivon.com>
 
 ## Current scope
 
-This repository contains a deliberately small static site:
+This repository contains a deliberately small multi-page static site:
 
-- no framework;
-- no package manager;
-- no database;
-- no analytics or cookies;
+- no framework or package manager;
+- no database, accounts, or backend;
+- no analytics, cookies, or contact-data collection;
 - no external fonts, scripts, or image dependencies;
 - deployable from the repository root with GitHub Pages.
 
-The core Ordivon governance project remains separate at
-[`zycxfyh/Ordivon`](https://github.com/zycxfyh/Ordivon).
+The site provides thin, useful surfaces for Home, Work, Notes, Now, About, and
+Contact. Project implementation and technical documentation remain in their
+canonical repositories.
+
+## Public routes
+
+```text
+/                         umbrella entrypoint
+/work/                    verified project and research directory
+/notes/                   authored public notes
+/notes/why-ordivon/       first substantive note
+/now/                     current activity and explicit non-offerings
+/about/                   scope, relationships, and ownership boundary
+/contact/                 public discussion and reporting routes
+```
 
 ## Local preview
 
@@ -34,18 +46,31 @@ Run the same dependency-free contract used by CI:
 python3 scripts/check_site.py
 ```
 
-The check validates required files, local runtime assets, internal links and
-fragments, basic HTML metadata, the `lab.ordivon.com` CNAME, and the absence of
-selected analytics/tracking patterns.
+The check validates:
 
-## Files
+- required pages and metadata;
+- nested local links, runtime assets, shared navigation, and Home routes;
+- canonical URLs, `sitemap.xml`, `robots.txt`, and `site.webmanifest`;
+- the exact `lab.ordivon.com` CNAME;
+- the absence of selected analytics, tracking, cookie-writing, and external-network patterns.
+
+## Main files
 
 ```text
 index.html                    public landing page
+work/                         project and research directory
+notes/                        notes index and authored articles
+now/                          time-bounded current activity
+about/                        scope and operating model
+contact/                      public contact routes
 404.html                      static not-found page
-assets/styles.css             visual system and responsive layout
+assets/styles.css             base visual system and responsive layout
+assets/umbrella.css           multi-page components
 assets/app.js                 minimal progressive enhancement
 assets/mark.svg               site mark and favicon
+site.webmanifest              install/display metadata
+sitemap.xml                   explicit maintained-route map
+robots.txt                    crawler guidance
 scripts/check_site.py         dependency-free release contract
 docs/operations.md            deployment and recovery runbook
 .github/workflows/site-check.yml
