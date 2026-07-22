@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Ordivon Runtime is a local execution and recovery runtime for capable AI agents, with durable jobs, bounded output, cancellation, artifacts, and restart recovery." />
+    <meta name="theme-color" content="#0b0f14" />
+    <link rel="canonical" href="https://lab.ordivon.com/work/ordivon-runtime/" />
+    <title>Ordivon Runtime — Ordivon</title>
+    <link rel="icon" href="../../assets/mark.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../site.webmanifest" />
+    <link rel="stylesheet" href="../../assets/styles.css" />
+    <link rel="stylesheet" href="../../assets/umbrella.css" />
+    <script src="../../assets/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="../../" aria-label="Ordivon home"><img src="../../assets/mark.svg" alt="" width="28" height="28" /><span>Ordivon</span></a>
+      <nav><a href="../" aria-current="page">Work</a><a href="../../notes/">Notes</a><a href="../../now/">Current</a><a href="../../about/">About</a><a href="../../contact/">Contact</a></nav>
+    </header>
+
+    <main id="main" class="page-main">
+      <header class="project-hero">
+        <p class="eyebrow">Runtime · Active engineering</p>
+        <h1>Durable execution for capable agents.</h1>
+        <p class="lede">Ordivon Runtime is a local execution and recovery layer. The agent owns reasoning and operation; the runtime owns durable execution truth, process identity, bounded observation, cancellation, artifacts, and recovery after interruption.</p>
+        <div class="actions"><a class="button button-primary" href="https://github.com/zycxfyh/Ordivon">Open repository</a><a class="button button-secondary" href="../">Back to portfolio</a></div>
+      </header>
+
+      <section class="project-facts" aria-label="Project facts">
+        <div><span>Current surface</span><strong>10 MCP tools</strong></div>
+        <div><span>Execution truth</span><strong>SQLite Jobs and Attempts</strong></div>
+        <div><span>Process ownership</span><strong>systemd and cgroups</strong></div>
+        <div><span>Authority model</span><strong>trusted-local or explicit isolation</strong></div>
+      </section>
+
+      <section class="section section-simple" aria-labelledby="problem-title">
+        <div class="section-heading"><p class="section-index">Purpose</p><h2 id="problem-title">Keep execution reliable without turning the agent into a captive workflow.</h2></div>
+        <div class="section-copy"><p>Agent reasoning can be flexible, exploratory, and model-specific. Host execution cannot be ephemeral. Commands need stable identity, observable state, bounded output, cancellation, restart recovery, and durable artifacts even when the conversation or client connection disappears.</p><p>Ordivon isolates that small non-reconstructable core. Git, source, tests, and live system state remain the primary truth; the runtime persists only the execution facts required to continue or recover work.</p></div>
+      </section>
+
+      <section class="section section-simple" aria-labelledby="flow-title">
+        <div class="section-heading"><p class="section-index">Execution path</p><h2 id="flow-title">A thin runtime between intent and the host.</h2></div>
+        <div class="project-flow" aria-label="Ordivon execution path">
+          <div><span>01</span><strong>Human intent</strong><p>Defines the objective, constraints, and delegated authority.</p></div>
+          <div><span>02</span><strong>Agent operation</strong><p>Reasons, chooses tools, and adapts implementation to observed results.</p></div>
+          <div><span>03</span><strong>Durable execution</strong><p>Owns Job and Attempt identity, process lifecycle, output bounds, and artifacts.</p></div>
+          <div><span>04</span><strong>Recovery or continuation</strong><p>Lets a later client observe, cancel, inspect, or continue from durable facts.</p></div>
+        </div>
+      </section>
+
+      <section class="section section-simple" aria-labelledby="defaults-title">
+        <div class="section-heading"><p class="section-index">Engineering defaults</p><h2 id="defaults-title">Thin context, thin recovery, explicit responsibility.</h2></div>
+        <div class="capability-grid">
+          <article><h3>Thin context</h3><p>Use source, tests, Git, live state, and a few current documents instead of reconstructing the repository as prose.</p></article>
+          <article><h3>Thin recovery</h3><p>Persist only execution facts that cannot be reconstructed from ordinary engineering truth.</p></article>
+          <article><h3>Reallocated responsibility</h3><p>The user owns intent, the agent owns implementation and operation, and the runtime owns durable execution truth.</p></article>
+        </div>
+      </section>
+
+      <section class="project-links" aria-labelledby="links-title">
+        <div><p class="section-index">Explore</p><h2 id="links-title">Start from the current system.</h2><p>The repository README and current-state document are the shortest accurate routes into the runtime, its ten-tool surface, and its recovery model.</p></div>
+        <div class="link-stack"><a href="https://github.com/zycxfyh/Ordivon">Repository <span aria-hidden="true">↗</span></a><a href="https://github.com/zycxfyh/Ordivon/blob/main/docs/current-state.md">Current state <span aria-hidden="true">↗</span></a><a href="https://github.com/zycxfyh/Ordivon/blob/main/AGENTS.md">Agent entrypoint <span aria-hidden="true">↗</span></a></div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><div><p>© <span id="year">2026</span> Ordivon</p><p>Durable execution · Recovery · Agent infrastructure</p></div><nav aria-label="Footer navigation"><a href="../../">Home</a><a href="../">Work</a><a href="../../notes/">Notes</a><a href="../../now/">Current</a><a href="../../about/">About</a></nav></footer>
+  </body>
+</html>
