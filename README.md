@@ -23,6 +23,10 @@ canonical repositories.
 ```text
 /                         umbrella entrypoint
 /work/                    verified project and research directory
+/work/ordivon-runtime/    durable agent execution and recovery runtime
+/work/finharness/          personal capital review and decision system
+/work/ordinary-prosperity/ comparative economic research program
+/work/ordivon-web/         public publishing and deployment surface
 /notes/                   authored public notes
 /notes/why-ordivon/       first substantive note
 /now/                     current activity and explicit non-offerings
@@ -58,7 +62,7 @@ The check validates:
 
 ```text
 index.html                    public landing page
-work/                         project and research directory
+work/                         project directory and project detail pages
 notes/                        notes index and authored articles
 now/                          time-bounded current activity
 about/                        scope and operating model

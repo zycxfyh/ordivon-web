@@ -1,7 +1,7 @@
 # Ordivon Web Operations
 
 This runbook describes the current public-site deployment only. It does not govern
-Ordivon Core, email, APIs, databases, MCP services, or the root-domain GoDaddy site.
+Ordivon Runtime, email, APIs, databases, MCP services, or the root-domain GoDaddy site.
 
 ## Current topology
 

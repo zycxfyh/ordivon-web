@@ -1,7 +1,7 @@
 {
   "name": "Ordivon",
   "short_name": "Ordivon",
-  "description": "A public laboratory for systems, knowledge, governance, and trustworthy action.",
+  "description": "A public laboratory for agent infrastructure, decision systems, research, and trustworthy action.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

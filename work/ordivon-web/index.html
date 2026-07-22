@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Ordivon Web is the dependency-free public entrypoint and publishing surface for Ordivon projects, research, notes, and current work." />
+    <meta name="theme-color" content="#0b0f14" />
+    <link rel="canonical" href="https://lab.ordivon.com/work/ordivon-web/" />
+    <title>Ordivon Web — Ordivon</title>
+    <link rel="icon" href="../../assets/mark.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../site.webmanifest" />
+    <link rel="stylesheet" href="../../assets/styles.css" />
+    <link rel="stylesheet" href="../../assets/umbrella.css" />
+    <script src="../../assets/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="../../" aria-label="Ordivon home"><img src="../../assets/mark.svg" alt="" width="28" height="28" /><span>Ordivon</span></a>
+      <nav><a href="../" aria-current="page">Work</a><a href="../../notes/">Notes</a><a href="../../now/">Current</a><a href="../../about/">About</a><a href="../../contact/">Contact</a></nav>
+    </header>
+
+    <main id="main" class="page-main">
+      <header class="project-hero">
+        <p class="eyebrow">Public surface · Active publishing</p>
+        <h1>A small public site that preserves project clarity.</h1>
+        <p class="lede">Ordivon Web is the public entrypoint for the portfolio. It gives projects, research, notes, current priorities, and contribution routes a stable address while leaving implementation truth in each canonical repository.</p>
+        <div class="actions"><a class="button button-primary" href="https://github.com/zycxfyh/ordivon-web">Open repository</a><a class="button button-secondary" href="../">Back to portfolio</a></div>
+      </header>
+
+      <section class="project-facts" aria-label="Project facts">
+        <div><span>Delivery</span><strong>Static GitHub Pages site</strong></div>
+        <div><span>Runtime dependencies</span><strong>Local assets only</strong></div>
+        <div><span>Data collection</span><strong>No analytics, cookies, or forms</strong></div>
+        <div><span>Public domain</span><strong>lab.ordivon.com</strong></div>
+      </section>
+
+      <section class="section section-simple" aria-labelledby="role-title">
+        <div class="section-heading"><p class="section-index">Role</p><h2 id="role-title">Connect public understanding without duplicating repository truth.</h2></div>
+        <div class="section-copy"><p>The website explains what each project is, how the portfolio fits together, what is being worked on now, and where public evidence lives. It does not become a second registry of mutable technical facts.</p><p>Project implementation, detailed architecture, tests, issues, pull requests, and current capability claims remain in their source repositories. The site provides orientation and authored interpretation.</p></div>
+      </section>
+
+      <section class="section section-simple" aria-labelledby="surface-title">
+        <div class="section-heading"><p class="section-index">Public surface</p><h2 id="surface-title">Six maintained routes and a growing project layer.</h2></div>
+        <div class="capability-grid">
+          <article><h3>Home</h3><p>A concise entrypoint to the mission, portfolio, operating discipline, and active destinations.</p></article>
+          <article><h3>Work</h3><p>Local project explanations backed by links to canonical repositories and current documents.</p></article>
+          <article><h3>Notes</h3><p>Authored research and design arguments that can be revised, cited, and extended.</p></article>
+          <article><h3>Current</h3><p>A time-bounded view of active engineering, research, and publishing priorities.</p></article>
+          <article><h3>About</h3><p>The portfolio relationship, operating model, ownership, and public-development boundary.</p></article>
+          <article><h3>Contact</h3><p>Repository-specific routes for discussion, contribution, issue reporting, and security concerns.</p></article>
+        </div>
+      </section>
+
+      <section class="section section-simple" aria-labelledby="contract-title">
+        <div class="section-heading"><p class="section-index">Release contract</p><h2 id="contract-title">Keep the site deployable, inspectable, and easy to recover.</h2></div>
+        <div class="project-flow" aria-label="Ordivon Web release contract">
+          <div><span>01</span><strong>Dependency-free source</strong><p>No framework, package manager, backend, external font, remote script, or image dependency.</p></div>
+          <div><span>02</span><strong>Automated verification</strong><p>Check required routes, metadata, canonical URLs, links, assets, sitemap, manifest, CNAME, and selected tracking patterns.</p></div>
+          <div><span>03</span><strong>Public release history</strong><p>Use Git commits, pull requests, CI, and GitHub Pages deployment as the recoverable record.</p></div>
+          <div><span>04</span><strong>DNS boundary</strong><p>Normal content releases do not modify the separate apex-domain or GoDaddy configuration.</p></div>
+        </div>
+      </section>
+
+      <section class="project-links" aria-labelledby="links-title">
+        <div><p class="section-index">Explore</p><h2 id="links-title">Inspect the site and its operating boundary.</h2><p>The repository contains the public pages, visual system, dependency-free release check, deployment workflow, and recovery runbook.</p></div>
+        <div class="link-stack"><a href="https://github.com/zycxfyh/ordivon-web">Repository <span aria-hidden="true">↗</span></a><a href="https://github.com/zycxfyh/ordivon-web/blob/main/scripts/check_site.py">Release check <span aria-hidden="true">↗</span></a><a href="https://github.com/zycxfyh/ordivon-web/blob/main/docs/operations.md">Operations runbook <span aria-hidden="true">↗</span></a></div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><div><p>© <span id="year">2026</span> Ordivon</p><p>Public orientation · Authored notes · Inspectable releases</p></div><nav aria-label="Footer navigation"><a href="../../">Home</a><a href="../">Work</a><a href="../../notes/">Notes</a><a href="../../now/">Current</a><a href="../../about/">About</a></nav></footer>
+  </body>
+</html>
