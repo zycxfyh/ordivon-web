@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://lab.ordivon.com/</loc></url>
-  <url><loc>https://lab.ordivon.com/work/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://lab.ordivon.com/work/ordivon-runtime/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://lab.ordivon.com/work/finharness/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://lab.ordivon.com/work/ordinary-prosperity/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://lab.ordivon.com/work/ordivon-web/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://lab.ordivon.com/notes/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://lab.ordivon.com/notes/ordivon-runtime-release/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://lab.ordivon.com/notes/why-ordivon/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://lab.ordivon.com/now/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://lab.ordivon.com/about/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://lab.ordivon.com/contact/</loc></url>
+  <url><loc>https://ordivon.com/</loc></url>
+  <url><loc>https://ordivon.com/work/</loc><lastmod>2026-07-23</lastmod></url>
+  <url><loc>https://ordivon.com/work/ordivon-runtime/</loc><lastmod>2026-07-23</lastmod></url>
+  <url><loc>https://ordivon.com/work/finharness/</loc><lastmod>2026-07-23</lastmod></url>
+  <url><loc>https://ordivon.com/work/ordinary-prosperity/</loc><lastmod>2026-07-23</lastmod></url>
+  <url><loc>https://ordivon.com/work/ordivon-web/</loc><lastmod>2026-07-23</lastmod></url>
+  <url><loc>https://ordivon.com/notes/</loc><lastmod>2026-07-23</lastmod></url>
+  <url><loc>https://ordivon.com/notes/ordivon-runtime-release/</loc><lastmod>2026-07-23</lastmod></url>
+  <url><loc>https://ordivon.com/notes/why-ordivon/</loc><lastmod>2026-07-23</lastmod></url>
+  <url><loc>https://ordivon.com/now/</loc><lastmod>2026-07-23</lastmod></url>
+  <url><loc>https://ordivon.com/about/</loc><lastmod>2026-07-23</lastmod></url>
+  <url><loc>https://ordivon.com/contact/</loc></url>
 </urlset>

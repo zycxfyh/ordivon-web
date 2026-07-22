@@ -12,8 +12,8 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE_URL = "https://lab.ordivon.com"
-EXPECTED_CNAME = "lab.ordivon.com"
+BASE_URL = "https://ordivon.com"
+EXPECTED_CNAME = "ordivon.com"
 REQUIRED_FILES = (
     "index.html",
     "404.html",
