@@ -2,7 +2,7 @@
 
 The public website and internet entrypoint for Ordivon.
 
-Current public site: <https://lab.ordivon.com>
+Current public site: <https://ordivon.com>
 
 ## Current scope
 
@@ -56,7 +56,7 @@ The check validates:
 - required pages and metadata;
 - nested local links, runtime assets, shared navigation, and Home routes;
 - canonical URLs, `sitemap.xml`, `robots.txt`, and `site.webmanifest`;
-- the exact `lab.ordivon.com` CNAME;
+- the exact `ordivon.com` CNAME;
 - the absence of selected analytics, tracking, cookie-writing, and external-network patterns.
 
 ## Main files
@@ -86,10 +86,11 @@ CNAME                         GitHub Pages custom-domain claim
 
 ## Deployment boundary
 
-GitHub Pages publishes from `main` and the repository root. The custom domain is
-`lab.ordivon.com`; the apex `ordivon.com` and `www.ordivon.com` remain separately
-managed by the existing GoDaddy Website Builder configuration.
+GitHub Pages publishes from `main` and the repository root with `ordivon.com` as
+the canonical custom domain. Cloudflare is the authoritative DNS provider;
+`www.ordivon.com` resolves through GitHub Pages and `lab.ordivon.com` is a
+Cloudflare-managed permanent redirect to the matching path on the apex domain.
 
 A normal content release or rollback must not modify DNS. See
 [`docs/operations.md`](docs/operations.md) before changing Pages settings,
-`CNAME`, or any GoDaddy record.
+`CNAME`, Cloudflare DNS, or redirect rules.
