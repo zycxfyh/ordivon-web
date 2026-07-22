@@ -21,17 +21,18 @@ canonical repositories.
 ## Public routes
 
 ```text
-/                         umbrella entrypoint
-/work/                    verified project and research directory
-/work/ordivon-runtime/    durable agent execution and recovery runtime
-/work/finharness/          personal capital review and decision system
-/work/ordinary-prosperity/ comparative economic research program
-/work/ordivon-web/         public publishing and deployment surface
-/notes/                   authored public notes
-/notes/why-ordivon/       first substantive note
-/now/                     current activity and explicit non-offerings
-/about/                   scope, relationships, and ownership boundary
-/contact/                 public discussion and reporting routes
+/                                      umbrella entrypoint
+/work/                                 verified project and research directory
+/work/ordivon-runtime/                 durable agent execution and recovery runtime
+/work/finharness/                      personal capital review and decision system
+/work/ordinary-prosperity/             comparative economic research program
+/work/ordivon-web/                     public publishing and deployment surface
+/notes/                                authored public notes and release records
+/notes/ordivon-runtime-release/        Ordivon Runtime M0–M7 core release note
+/notes/why-ordivon/                    first substantive design note
+/now/                                  current activity and explicit non-offerings
+/about/                                scope, relationships, and ownership boundary
+/contact/                              public discussion and reporting routes
 ```
 
 ## Local preview
@@ -63,7 +64,7 @@ The check validates:
 ```text
 index.html                    public landing page
 work/                         project directory and project detail pages
-notes/                        notes index and authored articles
+notes/                        notes index, release records, and authored articles
 now/                          time-bounded current activity
 about/                        scope and operating model
 contact/                      public contact routes
