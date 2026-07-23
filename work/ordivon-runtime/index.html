@@ -56,7 +56,7 @@
 
       <section class="section section-simple" aria-labelledby="architecture-title">
         <div class="section-heading"><p class="section-index">Current architecture</p><h2 id="architecture-title">One active path from authenticated client to recoverable result.</h2></div>
-        <div class="system-diagram" role="img" aria-label="MCP client through Cloudflare Access and Tunnel to Ordivon MCP, execution registry, systemd process tree, result files, and reconciliation">
+        <div tabindex="0" class="system-diagram" role="img" aria-label="MCP client through Cloudflare Access and Tunnel to Ordivon MCP, execution registry, systemd process tree, result files, and reconciliation">
           <div><span>Client</span><strong>MCP client</strong><small>Intent and tool calls</small></div><b aria-hidden="true">→</b>
           <div><span>Remote boundary</span><strong>Cloudflare Access + Tunnel</strong><small>Authenticated route to loopback</small></div><b aria-hidden="true">→</b>
           <div><span>Protocol</span><strong>ordivon-mcp</strong><small>10 public tools</small></div><b aria-hidden="true">→</b>

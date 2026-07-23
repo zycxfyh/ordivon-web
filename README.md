@@ -8,7 +8,8 @@ Current public site: <https://ordivon.com>
 
 This repository contains a deliberately small multi-page static site:
 
-- no framework or package manager;
+- no frontend framework or runtime package manager;
+- pinned npm development dependencies only for browser, accessibility, and Lighthouse CI;
 - no database, accounts, or backend;
 - no analytics, cookies, or contact-data collection;
 - no external fonts, scripts, or image dependencies;
@@ -45,7 +46,7 @@ Then open `http://localhost:8000`.
 
 ## Verification
 
-Run the same dependency-free contract used by CI:
+Run the fast dependency-free contract:
 
 ```bash
 python3 scripts/check_site.py
@@ -59,6 +60,21 @@ The check validates:
 - Open Graph, Twitter Card, JSON-LD, and local 1200×630 social images;
 - the exact `ordivon.com` CNAME;
 - the absence of selected analytics, tracking, cookie-writing, and external-network patterns.
+
+Install the pinned development-only verification tools and run the browser layer:
+
+```bash
+npm ci
+npx playwright install chromium
+npm run test:browser
+npm run test:links
+```
+
+The browser workflow checks all maintained public routes across desktop, tablet,
+and mobile viewports. It verifies keyboard navigation, target sizes, horizontal
+overflow, browser-console errors, and serious or critical axe findings. Selected
+full-page screenshots and informational Lighthouse reports are uploaded as CI
+Artifacts rather than committed as visual baselines.
 
 ## Main files
 
@@ -80,9 +96,17 @@ site.webmanifest              install/display metadata
 sitemap.xml                   explicit maintained-route map
 robots.txt                    crawler guidance
 scripts/check_site.py         dependency-free release contract
+scripts/check_external_links.py
+                              bounded external-link sampling
+playwright.config.mjs         browser project and local-server configuration
+tests/browser/site.spec.js    responsive, keyboard, accessibility, and screenshot checks
+package.json / package-lock.json
+                              pinned development-only browser verification dependencies
 docs/operations.md            deployment and recovery runbook
 .github/workflows/site-check.yml
-                              pull-request and main-branch verification
+                              fast pull-request and main-branch verification
+.github/workflows/browser-check.yml
+                              browser evidence and informational Lighthouse reports
 .nojekyll                     disable Jekyll processing on GitHub Pages
 CNAME                         GitHub Pages custom-domain claim
 ```

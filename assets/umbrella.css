@@ -858,6 +858,11 @@
   padding-bottom: 0.75rem;
 }
 
+.system-diagram:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
 .system-diagram > div {
   min-width: 150px;
   padding: 1.2rem;

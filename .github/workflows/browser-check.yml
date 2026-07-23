@@ -1,0 +1,95 @@
+name: Browser presentation checks
+
+on:
+  pull_request:
+    paths:
+      - "**/*.html"
+      - "assets/**"
+      - "feed.xml"
+      - "package.json"
+      - "package-lock.json"
+      - "playwright.config.mjs"
+      - "tests/browser/**"
+      - "scripts/check_external_links.py"
+      - ".github/workflows/browser-check.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "**/*.html"
+      - "assets/**"
+      - "feed.xml"
+      - "package.json"
+      - "package-lock.json"
+      - "playwright.config.mjs"
+      - "tests/browser/**"
+      - "scripts/check_external_links.py"
+      - ".github/workflows/browser-check.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: browser-check-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  browser:
+    name: Verify browser presentation
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install pinned verification dependencies
+        run: npm ci
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Run fast static contract
+        run: python3 scripts/check_site.py
+
+      - name: Run responsive and accessibility checks
+        run: npm run test:browser
+
+      - name: Sample external links
+        run: npm run test:links
+
+      - name: Generate informational Lighthouse reports
+        continue-on-error: true
+        run: |
+          mkdir -p artifacts/lighthouse
+          python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/ordivon-lighthouse.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          sleep 1
+          chrome=$(find "$HOME/.cache/ms-playwright" -type f -path "*/chrome-linux64/chrome" | sort | tail -1)
+          test -x "$chrome"
+          CHROME_PATH="$chrome" npx lighthouse http://127.0.0.1:8765/ \
+            --chrome-flags="--headless --no-sandbox" \
+            --output=json \
+            --output-path=artifacts/lighthouse/home.json
+          CHROME_PATH="$chrome" npx lighthouse http://127.0.0.1:8765/ \
+            --chrome-flags="--headless --no-sandbox" \
+            --output=html \
+            --output-path=artifacts/lighthouse/home.html
+
+      - name: Upload browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-presentation-${{ github.sha }}
+          path: artifacts/
+          if-no-files-found: warn
+          retention-days: 14
