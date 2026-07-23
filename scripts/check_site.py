@@ -20,7 +20,6 @@ REQUIRED_FILES = (
     "work/index.html",
     "work/ordivon-runtime/index.html",
     "work/finharness/index.html",
-    "work/ordinary-prosperity/index.html",
     "work/ordivon-web/index.html",
     "notes/index.html",
     "notes/why-ordivon/index.html",
@@ -83,6 +82,9 @@ class SiteHTMLParser(HTMLParser):
         self.has_viewport = False
         self.has_description = False
         self.nav_count = 0
+        self.has_desktop_navigation = False
+        self.has_mobile_navigation = False
+        self.has_mobile_summary = False
         self.canonical_href = ""
         self.manifest_href = ""
         self._inside_title = False
@@ -96,8 +98,15 @@ class SiteHTMLParser(HTMLParser):
             self.has_lang = True
         if tag == "title":
             self._inside_title = True
+        classes = set(values.get("class", "").split())
         if tag == "nav":
             self.nav_count += 1
+            if "desktop-navigation" in classes:
+                self.has_desktop_navigation = True
+        if tag == "details" and "mobile-navigation" in classes:
+            self.has_mobile_navigation = True
+        if tag == "summary" and "mobile-navigation-summary" in classes:
+            self.has_mobile_summary = True
         if tag == "meta":
             name = values.get("name", "").lower()
             content = values.get("content", "").strip()
@@ -244,6 +253,10 @@ def check_html(path: Path) -> None:
         fail(f"{relative}: non-empty meta description is required")
     if parser.nav_count < 1:
         fail(f"{relative}: at least one navigation landmark is required")
+    if not parser.has_desktop_navigation:
+        fail(f"{relative}: desktop project navigation is required")
+    if not parser.has_mobile_navigation or not parser.has_mobile_summary:
+        fail(f"{relative}: keyboard-operable mobile navigation is required")
     if parser.canonical_href != expected_canonical(path):
         fail(
             f"{relative}: canonical must be {expected_canonical(path)!r}; "

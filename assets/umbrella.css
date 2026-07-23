@@ -709,3 +709,140 @@
     grid-column: 2;
   }
 }
+
+
+/* Research and project publishing navigation */
+.desktop-navigation a[aria-current="page"],
+.mobile-navigation a[aria-current="page"] {
+  color: var(--text);
+}
+
+.mobile-navigation {
+  display: none;
+}
+
+.mobile-navigation summary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 76px;
+  min-height: 44px;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--text);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+
+.mobile-navigation summary:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.mobile-navigation summary::-webkit-details-marker {
+  display: none;
+}
+
+.mobile-navigation summary::after {
+  margin-left: 0.55rem;
+  color: var(--accent);
+  content: "+";
+}
+
+.mobile-navigation[open] summary::after {
+  content: "−";
+}
+
+.snapshot-link {
+  display: inline-flex;
+  margin-top: 1.4rem;
+}
+
+.route-grid-compact .route-card {
+  min-height: 210px;
+}
+
+.closing-actions {
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.portfolio-path-three,
+.relationship-grid-three,
+.now-grid-three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.project-question {
+  padding-left: 1rem;
+  border-left: 2px solid rgba(143, 227, 207, 0.45);
+  color: #cbd5df !important;
+}
+
+@media (max-width: 960px) {
+  .portfolio-path-three,
+  .relationship-grid-three,
+  .now-grid-three {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 840px) {
+  .section {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .section > * {
+    min-width: 0;
+  }
+
+  .site-header .desktop-navigation {
+    display: none;
+  }
+
+  .site-header .mobile-navigation {
+    display: block;
+    width: 100%;
+    padding-bottom: 1rem;
+  }
+
+  .site-header .mobile-navigation nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+    width: 100%;
+    margin-top: 0.75rem;
+    padding: 0.75rem;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: var(--surface);
+  }
+
+  .site-header .mobile-navigation nav a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.55rem 0.7rem;
+    border-radius: 10px;
+  }
+
+  .site-header .mobile-navigation nav a:hover,
+  .site-header .mobile-navigation nav a[aria-current="page"] {
+    background: rgba(143, 227, 207, 0.06);
+  }
+}
+
+@media (max-width: 480px) {
+  h1,
+  h2,
+  h3 {
+    overflow-wrap: anywhere;
+  }
+
+  .site-header .mobile-navigation nav {
+    grid-template-columns: 1fr;
+  }
+}

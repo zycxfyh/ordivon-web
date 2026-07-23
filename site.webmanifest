@@ -1,7 +1,7 @@
 {
   "name": "Ordivon",
   "short_name": "Ordivon",
-  "description": "A public laboratory for agent infrastructure, decision systems, research, and trustworthy action.",
+  "description": "Independent engineering projects, release records, and public notes on AI agents, capital systems, and complex software.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

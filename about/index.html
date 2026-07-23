@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Learn how Ordivon connects durable agent infrastructure, capital-decision systems, economic research, and public publishing." />
+    <meta name="description" content="About Ordivon, an independent public interface for engineering projects, working notes, releases, and long-term inquiry." />
     <meta name="theme-color" content="#0b0f14" />
     <link rel="canonical" href="https://ordivon.com/about/" />
     <meta property="og:url" content="https://ordivon.com/about/" />
@@ -18,48 +18,56 @@
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header" aria-label="Primary navigation">
       <a class="brand" href="../" aria-label="Ordivon home"><img src="../assets/mark.svg" alt="" width="28" height="28" /><span>Ordivon</span></a>
-      <nav><a href="../work/">Work</a><a href="../notes/">Notes</a><a href="../now/">Current</a><a href="./" aria-current="page">About</a><a href="../contact/">Contact</a></nav>
+      <nav class="desktop-navigation"><a href="../work/">Projects</a><a href="../notes/">Notes</a><a href="../now/">Current</a><a href="../about/" aria-current="page">About</a><a href="https://github.com/zycxfyh">GitHub <span aria-hidden="true">↗</span></a></nav>
+      <details class="mobile-navigation">
+        <summary class="mobile-navigation-summary">Menu</summary>
+        <nav aria-label="Mobile navigation"><a href="../work/">Projects</a><a href="../notes/">Notes</a><a href="../now/">Current</a><a href="../about/" aria-current="page">About</a><a href="https://github.com/zycxfyh">GitHub <span aria-hidden="true">↗</span></a><a href="../contact/">Contact</a></nav>
+      </details>
     </header>
 
     <main id="main" class="page-main">
       <header class="page-hero">
         <p class="eyebrow">About</p>
-        <h1>Building trustworthy systems across software and research.</h1>
-        <p class="lede">Ordivon is a public laboratory for agent infrastructure, capital-decision systems, long-term research, and human–AI collaboration. Its projects test how thin execution cores, explicit responsibility, verified state, and public evidence can support useful work without unnecessary machinery.</p>
+        <h1>A public interface for projects that change through use and inquiry.</h1>
+        <p class="lede">Ordivon brings together independent engineering work, authored notes, release records, and current questions. The aim is not to present a finished company or a fixed theory, but to make the development of difficult projects easier to understand, inspect, and revisit.</p>
       </header>
 
-      <section class="section section-simple" aria-labelledby="question-title">
-        <div class="section-heading"><p class="section-index">Shared question</p><h2 id="question-title">How should humans and AI build consequential systems together?</h2></div>
-        <div class="section-copy"><p>Ordivon approaches that question through several forms of work. Runtime engineering makes agent execution durable. Decision systems test disciplined state and review inside a demanding domain. Research studies the economic and institutional environments in which decisions accumulate over a lifetime. Public notes connect the ideas and make the reasoning easier to inspect.</p><p>The common aim is practical: turn evidence into judgment, judgment into bounded action, and action into records that support review and learning.</p></div>
+      <section class="section section-simple" aria-labelledby="purpose-title">
+        <div class="section-heading"><p class="section-index">Purpose</p><h2 id="purpose-title">Publish the reasoning around the repositories, not a second copy of them.</h2></div>
+        <div class="section-copy"><p>Source code, tests, data, Git history, and current-state documents remain the owners of technical facts. This site provides the editorial layer: why a project exists, which question it addresses, how the approach changed, what has been demonstrated, and what remains open.</p><p>That distinction keeps the public explanation useful without forcing every visitor to reconstruct the project from source—or allowing prose to silently replace live system truth.</p></div>
       </section>
 
-      <section class="section section-simple" aria-labelledby="model-title">
-        <div class="section-heading"><p class="section-index">Operating model</p><h2 id="model-title">Five layers connect capability to accountability.</h2></div>
-        <div class="model-stack" aria-label="Ordivon operating model">
-          <div><span>01</span><strong>Observe</strong><p>Capture the world, system, or capital state with clear time and source context.</p></div>
-          <div><span>02</span><strong>Evidence</strong><p>Preserve provenance, transformations, quality, freshness, and uncertainty.</p></div>
-          <div><span>03</span><strong>Judge</strong><p>Compare assumptions, alternatives, risks, counter-evidence, and expected outcomes.</p></div>
-          <div><span>04</span><strong>Authorize</strong><p>Connect action to a principal, scope, condition, approval, and review path.</p></div>
-          <div><span>05</span><strong>Act and learn</strong><p>Record execution, reconcile outcomes, review the decision, and improve the next cycle.</p></div>
+      <section class="section section-simple" aria-labelledby="question-title">
+        <div class="section-heading"><p class="section-index">Connected questions</p><h2 id="question-title">How can capable systems remain understandable while they evolve?</h2></div>
+        <div class="section-copy"><p>Ordivon Runtime asks which execution facts must survive interruption when agents operate real machines. FinHarness asks how capital state, uncertainty, judgment, bounded action, and later review can remain connected. Ordivon Web asks how work like this can be presented honestly without becoming a marketing abstraction or a duplicate registry.</p><p>The projects share methods and lessons, but each remains independently understandable and keeps its own domain boundaries.</p></div>
+      </section>
+
+      <section class="section section-simple" aria-labelledby="method-title">
+        <div class="section-heading"><p class="section-index">Working method</p><h2 id="method-title">Questions move through research, construction, failure, and revision.</h2></div>
+        <div class="model-stack" aria-label="Ordivon working method">
+          <div><span>01</span><strong>Find the real problem</strong><p>Begin with observed friction, uncertainty, failure, or a decision that existing abstractions do not explain well.</p></div>
+          <div><span>02</span><strong>Inspect existing knowledge</strong><p>Read the relevant research, standards, systems, source, data, and prior attempts before inventing another layer.</p></div>
+          <div><span>03</span><strong>Build a bounded model</strong><p>Define the objects, mechanisms, claims, and non-goals needed for the current problem.</p></div>
+          <div><span>04</span><strong>Test through real work</strong><p>Use implementation, analysis, dogfood, counterexamples, and review to expose where the model fails.</p></div>
+          <div><span>05</span><strong>Revise and publish</strong><p>Change the system, record the result, and preserve unresolved questions rather than forcing premature closure.</p></div>
         </div>
       </section>
 
       <section class="section section-simple" aria-labelledby="relationship-title">
-        <div class="section-heading"><p class="section-index">Portfolio</p><h2 id="relationship-title">One laboratory, four public surfaces.</h2></div>
-        <div class="relationship-grid">
-          <article><p class="surface-label">Agent infrastructure</p><h3>Ordivon Runtime</h3><p>Durable Jobs and Attempts, process ownership, cancellation, bounded output, artifacts, and restart recovery.</p></article>
-          <article><p class="surface-label">Decision system</p><h3>FinHarness</h3><p>Capital state, research, risk, judgment, authority, execution, reconciliation, and review.</p></article>
-          <article><p class="surface-label">Research program</p><h3>Ordinary Prosperity</h3><p>Income, capital, institutions, resilience, life-course transitions, and economic choice.</p></article>
-          <article><p class="surface-label">Public knowledge</p><h3>Ordivon Web</h3><p>Project discovery, authored notes, current priorities, deployment records, and public discussion routes.</p></article>
+        <div class="section-heading"><p class="section-index">Current portfolio</p><h2 id="relationship-title">Three public surfaces, each with a different job.</h2></div>
+        <div class="relationship-grid relationship-grid-three">
+          <article><p class="surface-label">Agent infrastructure</p><h3>Ordivon Runtime</h3><p>Execution identity, process ownership, cancellation, bounded output, Artifacts, and recovery for capable local agents.</p></article>
+          <article><p class="surface-label">Capital system</p><h3>FinHarness</h3><p>Capital state, evidence, uncertainty, judgment, simulated action, reconciliation, and decision review.</p></article>
+          <article><p class="surface-label">Public record</p><h3>Ordivon Web</h3><p>Project orientation, authored notes, current questions, release records, and routes to canonical evidence.</p></article>
         </div>
       </section>
 
-      <section class="section section-simple" aria-labelledby="development-title">
-        <div class="section-heading"><p class="section-index">Development</p><h2 id="development-title">The work is built and reviewed in public.</h2></div>
-        <div class="section-copy"><p>Ordivon is maintained by <a class="inline-link" href="https://github.com/zycxfyh">zycxfyh</a> through public repositories. Source code, documents, issues, pull requests, tests, release checks, and revision history provide the working record behind each project.</p><p>Each repository remains the canonical source for its current capabilities and evidence. This site provides the map that connects them.</p></div>
+      <section class="section section-simple" aria-labelledby="ownership-title">
+        <div class="section-heading"><p class="section-index">Authorship</p><h2 id="ownership-title">The work is independently maintained and developed in public.</h2></div>
+        <div class="section-copy"><p>Ordivon is maintained by <a class="inline-link" href="https://github.com/zycxfyh">zycxfyh</a>. Public repositories, issues, pull requests, tests, release checks, notes, and revision history form the working record behind the site.</p><p>The presentation may evolve, but consequential claims should remain traceable to the repository, evidence, or dated interpretation that supports them.</p></div>
       </section>
     </main>
 
-    <footer class="site-footer"><div><p>© <span id="year">2026</span> Ordivon</p><p>Governed systems · Long-term research · Public development</p></div><nav aria-label="Footer navigation"><a href="../">Home</a><a href="../work/">Work</a><a href="../notes/">Notes</a><a href="../now/">Current</a><a href="../contact/">Contact</a></nav></footer>
+    <footer class="site-footer"><div><p>© <span id="year">2026</span> Ordivon</p><p>Independent projects · Public development · Working notes</p></div><nav aria-label="Footer navigation"><a href="../">Home</a><a href="../work/">Projects</a><a href="../notes/">Notes</a><a href="../now/">Current</a><a href="../contact/">Contact</a></nav></footer>
   </body>
 </html>

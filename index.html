@@ -3,20 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Ordivon develops durable agent infrastructure, capital-decision systems, and public research for the AI era."
-    />
+    <meta name="description" content="Ordivon publishes independent research, engineering projects, release records, and working notes on AI agents, capital systems, and complex software." />
     <meta name="theme-color" content="#0b0f14" />
     <meta property="og:title" content="Ordivon" />
-    <meta
-      property="og:description"
-      content="Agent infrastructure, decision systems, and long-term research for the AI era."
-    />
+    <meta property="og:description" content="Independent research, engineering projects, and public notes on AI agents, capital systems, and complex software." />
     <meta property="og:type" content="website" />
     <link rel="canonical" href="https://ordivon.com/" />
     <meta property="og:url" content="https://ordivon.com/" />
-    <title>Ordivon — Infrastructure, decisions, and research</title>
+    <title>Ordivon — Research, projects, and public notes</title>
     <link rel="icon" href="assets/mark.svg" type="image/svg+xml" />
     <link rel="manifest" href="site.webmanifest" />
     <link rel="stylesheet" href="assets/styles.css" />
@@ -25,154 +19,152 @@
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-
     <header class="site-header" aria-label="Primary navigation">
-      <a class="brand" href="./" aria-label="Ordivon home" aria-current="page">
-        <img src="assets/mark.svg" alt="" width="28" height="28" />
-        <span>Ordivon</span>
-      </a>
-      <nav>
-        <a href="work/">Work</a>
-        <a href="notes/">Notes</a>
-        <a href="now/">Current</a>
-        <a href="about/">About</a>
-        <a href="contact/">Contact</a>
-      </nav>
+      <a class="brand" href="./" aria-label="Ordivon home" aria-current="page"><img src="assets/mark.svg" alt="" width="28" height="28" /><span>Ordivon</span></a>
+      <nav class="desktop-navigation"><a href="work/">Projects</a><a href="notes/">Notes</a><a href="now/">Current</a><a href="about/">About</a><a href="https://github.com/zycxfyh">GitHub <span aria-hidden="true">↗</span></a></nav>
+      <details class="mobile-navigation">
+        <summary class="mobile-navigation-summary">Menu</summary>
+        <nav aria-label="Mobile navigation"><a href="work/">Projects</a><a href="notes/">Notes</a><a href="now/">Current</a><a href="about/">About</a><a href="https://github.com/zycxfyh">GitHub <span aria-hidden="true">↗</span></a><a href="contact/">Contact</a></nav>
+      </details>
     </header>
 
     <main id="main">
       <section class="hero hero-compact" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow">Open infrastructure, systems, and research</p>
-          <h1 id="hero-title">Infrastructure, decisions, and research for the AI era.</h1>
-          <p class="lede">
-            Ordivon develops durable agent infrastructure, personal-capital decision
-            systems, and public research. The projects share a practical discipline:
-            preserve the facts that matter, keep responsibility explicit, and let real
-            work improve the next design.
-          </p>
+          <p class="eyebrow">Independent research and engineering</p>
+          <h1 id="hero-title">Projects, notes, and working ideas built in public.</h1>
+          <p class="lede">Ordivon is a public interface for long-running work on AI agents, capital systems, and the engineering of complex software. It connects the questions behind each project to the code, evidence, releases, revisions, and open problems that move the work forward.</p>
           <div class="actions">
-            <a class="button button-primary" href="notes/ordivon-runtime-release/">Read the Runtime release</a>
-            <a class="button button-secondary" href="work/">Explore the work</a>
+            <a class="button button-primary" href="work/">Explore projects</a>
+            <a class="button button-secondary" href="notes/">Read recent work</a>
           </div>
         </div>
 
         <aside class="snapshot-card" aria-labelledby="snapshot-title">
-          <p class="surface-label surface-label-live">Latest release · 23 July 2026</p>
-          <h2 id="snapshot-title">Ordivon Runtime core accepted</h2>
+          <p class="surface-label surface-label-live">Recent release · 23 July 2026</p>
+          <h2 id="snapshot-title">Ordivon Runtime reached a smaller, usable core.</h2>
           <dl class="snapshot-list">
-            <div><dt>Protocol</dt><dd>10 production-tested MCP tools</dd></div>
-            <div><dt>Execution</dt><dd>Durable Jobs, Attempts, and process ownership</dd></div>
-            <div><dt>Recovery</dt><dd>Cancellation, Artifacts, reconciliation, cleanup</dd></div>
-            <div><dt>Next</dt><dd>Real use and production cutover</dd></div>
+            <div><dt>Question</dt><dd>What execution truth must survive interruption?</dd></div>
+            <div><dt>Result</dt><dd>10-tool local execution and recovery Runtime</dd></div>
+            <div><dt>Evidence</dt><dd>Positive paths and negative boundaries dogfooded</dd></div>
+            <div><dt>Next</dt><dd>Real use, recovery validation, and further deletion</dd></div>
           </dl>
+          <a class="text-link snapshot-link" href="notes/ordivon-runtime-release/">Read the release record <span aria-hidden="true">→</span></a>
         </aside>
       </section>
 
-      <section class="section" aria-labelledby="routes-title">
+      <section class="section" aria-labelledby="featured-title">
         <div class="section-heading">
-          <p class="section-index">01 / Explore</p>
-          <h2 id="routes-title">Start with the completed Runtime core.</h2>
+          <p class="section-index">01 / Featured work</p>
+          <h2 id="featured-title">Current work, presented with its question and boundary.</h2>
         </div>
         <div class="route-grid">
+          <a class="route-card" href="work/ordivon-runtime/">
+            <span>Engineering project</span>
+            <strong>Ordivon Runtime</strong>
+            <p>How can capable agents execute real local work without losing process identity, results, or recovery state when a client disconnects?</p>
+          </a>
+          <a class="route-card" href="work/finharness/">
+            <span>Capital system</span>
+            <strong>FinHarness</strong>
+            <p>How can financial state, evidence, judgment, bounded action, and later review form one inspectable capital-decision process?</p>
+          </a>
           <a class="route-card" href="notes/ordivon-runtime-release/">
-            <span>Latest release</span>
+            <span>Release record</span>
             <strong>From governance platform to durable execution</strong>
-            <p>Read why Ordivon became a thin Runtime, what the ten-tool acceptance proved, and what operational work remains.</p>
-          </a>
-          <a class="route-card" href="work/">
-            <span>Work</span>
-            <strong>Open-source systems</strong>
-            <p>Explore agent infrastructure, capital-decision software, research, and publishing tools.</p>
-          </a>
-          <a class="route-card" href="notes/">
-            <span>Notes</span>
-            <strong>Release records and durable ideas</strong>
-            <p>Read completed engineering boundaries, architecture explanations, research, and design arguments.</p>
+            <p>Why the Runtime was radically simplified, what the ten-tool acceptance established, and what remains unproven.</p>
           </a>
           <a class="route-card" href="now/">
-            <span>Current</span>
-            <strong>What happens after release</strong>
-            <p>Follow Runtime adoption, FinHarness engineering, research, and public publishing priorities.</p>
-          </a>
-          <a class="route-card" href="about/">
-            <span>About</span>
-            <strong>Mission and operating model</strong>
-            <p>See the shared question, working method, and relationship between the projects.</p>
-          </a>
-          <a class="route-card" href="contact/">
-            <span>Contact</span>
-            <strong>Discuss and contribute</strong>
-            <p>Choose the relevant public repository for questions, ideas, and issue reports.</p>
+            <span>Current questions</span>
+            <strong>What the work is testing now</strong>
+            <p>Follow active implementation, operational boundaries, unresolved questions, and the next evidence that could change direction.</p>
           </a>
         </div>
       </section>
 
-      <section class="section" aria-labelledby="work-title">
+      <section class="section" aria-labelledby="projects-title">
         <div class="section-heading">
-          <p class="section-index">02 / Portfolio</p>
-          <h2 id="work-title">A connected body of work.</h2>
+          <p class="section-index">02 / Projects</p>
+          <h2 id="projects-title">Three maintained surfaces with different responsibilities.</h2>
         </div>
         <div class="work-list work-list-condensed">
           <article class="work-card">
             <div>
-              <p class="status status-foundation"><span aria-hidden="true"></span> Core accepted · Adoption active</p>
+              <p class="status status-foundation"><span aria-hidden="true"></span> Runtime adoption</p>
+              <p class="work-meta">Execution · Recovery · Agent infrastructure</p>
               <h3>Ordivon Runtime</h3>
-              <p>A local execution and recovery layer with ten production-tested tools, durable Jobs, process ownership, bounded output, cancellation, artifacts, and restart recovery.</p>
+              <p>A thin local Runtime that preserves non-reconstructable execution facts while leaving reasoning, implementation, and ordinary host operations to capable agents.</p>
             </div>
-            <a href="work/ordivon-runtime/">Project page <span aria-hidden="true">→</span></a>
+            <a href="work/ordivon-runtime/">Read project <span aria-hidden="true">→</span></a>
           </article>
           <article class="work-card">
             <div>
-              <p class="status status-current"><span aria-hidden="true"></span> Decision system</p>
+              <p class="status status-current"><span aria-hidden="true"></span> Active engineering</p>
+              <p class="work-meta">Capital state · Judgment · Review</p>
               <h3>FinHarness</h3>
-              <p>A personal-capital system that connects financial state, research, risk, human judgment, governed action, and review.</p>
+              <p>A personal capital system exploring how verified state, research, risk, human judgment, simulated action, reconciliation, and learning fit together.</p>
             </div>
-            <a href="work/finharness/">Project page <span aria-hidden="true">→</span></a>
-          </article>
-          <article class="work-card">
-            <div>
-              <p class="status status-research"><span aria-hidden="true"></span> Research program</p>
-              <h3>Ordinary Prosperity Research</h3>
-              <p>Long-term research on how labor, income, saving, capital ownership, institutions, and life-course choices shape economic resilience.</p>
-            </div>
-            <a href="work/ordinary-prosperity/">Project page <span aria-hidden="true">→</span></a>
+            <a href="work/finharness/">Read project <span aria-hidden="true">→</span></a>
           </article>
           <article class="work-card">
             <div>
               <p class="status status-experimental"><span aria-hidden="true"></span> Public publishing</p>
+              <p class="work-meta">Explanation · Navigation · Public record</p>
               <h3>Ordivon Web</h3>
-              <p>The public index and publishing surface for Ordivon’s projects, research, release records, notes, and ongoing development.</p>
+              <p>The dependency-free publishing surface that introduces the projects, connects notes to evidence, records current work, and keeps public explanations usable over time.</p>
             </div>
-            <a href="work/ordivon-web/">Project page <span aria-hidden="true">→</span></a>
+            <a href="work/ordivon-web/">Read project <span aria-hidden="true">→</span></a>
           </article>
         </div>
       </section>
 
-      <section class="section" aria-labelledby="principles-title">
+      <section class="section" aria-labelledby="method-title">
         <div class="section-heading">
-          <p class="section-index">03 / Operating discipline</p>
-          <h2 id="principles-title">Build trust into the workflow.</h2>
+          <p class="section-index">03 / Working method</p>
+          <h2 id="method-title">The publication follows the development of the work.</h2>
         </div>
-        <div class="principle-grid">
-          <article><span class="principle-number">01</span><h3>Preserve evidence</h3><p>Keep sources, transformations, uncertainty, freshness, and limits visible.</p></article>
-          <article><span class="principle-number">02</span><h3>Make judgment inspectable</h3><p>Expose assumptions, alternatives, risks, and reasons behind consequential decisions.</p></article>
-          <article><span class="principle-number">03</span><h3>Bound authority</h3><p>Connect permission to a clear principal, scope, condition, and review path.</p></article>
-          <article><span class="principle-number">04</span><h3>Produce receipts</h3><p>Record important actions so they can support verification, reconciliation, and learning.</p></article>
+        <div class="model-stack" aria-label="Research and engineering process">
+          <div><span>01</span><strong>Question</strong><p>Start from a real uncertainty, failure, decision, or unexplained observation.</p></div>
+          <div><span>02</span><strong>Context</strong><p>Inspect existing research, systems, source code, data, and prior attempts.</p></div>
+          <div><span>03</span><strong>Model</strong><p>Define the objects, mechanisms, boundaries, and claims that matter.</p></div>
+          <div><span>04</span><strong>Build or analyze</strong><p>Implement the system, run the study, or construct the comparison.</p></div>
+          <div><span>05</span><strong>Test and critique</strong><p>Use evidence, failure, review, and counterexamples to revise the model.</p></div>
+          <div><span>06</span><strong>Publish</strong><p>Record the result as code, a release, a note, a report, or a changed question.</p></div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="notes-title">
+        <div class="section-heading">
+          <p class="section-index">04 / Recent records</p>
+          <h2 id="notes-title">Notes preserve reasoning that does not belong in source code.</h2>
+        </div>
+        <div class="route-grid route-grid-compact">
+          <a class="route-card" href="notes/ordivon-runtime-release/">
+            <span>Release · 23 July 2026</span>
+            <strong>From governance platform to durable execution</strong>
+            <p>A bounded record of the Runtime simplification, acceptance result, and remaining operational uncertainty.</p>
+          </a>
+          <a class="route-card" href="notes/why-ordivon/">
+            <span>Design note · 23 July 2026</span>
+            <strong>Why Ordivon matters in the AI era</strong>
+            <p>An argument for separating flexible reasoning from the execution facts, evidence, authority, and review that must remain inspectable.</p>
+          </a>
         </div>
       </section>
 
       <section class="closing" aria-labelledby="closing-title">
-        <p class="eyebrow">Execution becomes evidence. Decisions become learning.</p>
-        <h2 id="closing-title">Build useful work in public, then deepen what creates value.</h2>
+        <p class="eyebrow">Projects remain canonical. The site makes them legible.</p>
+        <h2 id="closing-title">Follow the questions, inspect the evidence, and see how the work changes.</h2>
+        <div class="actions closing-actions">
+          <a class="button button-primary" href="work/">Browse projects</a>
+          <a class="button button-secondary" href="about/">About the work</a>
+        </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div><p>© <span id="year">2026</span> Ordivon</p><p>Open systems · Public research · Release records</p></div>
-      <nav aria-label="Footer navigation">
-        <a href="work/">Work</a><a href="notes/">Notes</a><a href="now/">Current</a><a href="about/">About</a><a href="contact/">Contact</a>
-      </nav>
+      <div><p>© <span id="year">2026</span> Ordivon</p><p>Research · Engineering · Public notes</p></div>
+      <nav aria-label="Footer navigation"><a href="work/">Projects</a><a href="notes/">Notes</a><a href="now/">Current</a><a href="about/">About</a><a href="contact/">Contact</a></nav>
     </footer>
   </body>
 </html>
