@@ -846,3 +846,216 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Project explanation and evidence surfaces */
+.system-diagram {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(130px, 1fr) auto) minmax(130px, 1fr);
+  gap: 0.65rem;
+  align-items: stretch;
+  overflow-x: auto;
+  padding-bottom: 0.75rem;
+}
+
+.system-diagram > div {
+  min-width: 150px;
+  padding: 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.system-diagram > b {
+  align-self: center;
+  color: var(--accent);
+  font-size: 1.2rem;
+}
+
+.system-diagram span,
+.system-diagram small {
+  display: block;
+  color: var(--muted);
+}
+
+.system-diagram span {
+  margin-bottom: 2rem;
+  color: var(--accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.system-diagram strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  line-height: 1.25;
+}
+
+.system-diagram small {
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.tool-matrix {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.tool-matrix > div {
+  min-height: 235px;
+  padding: clamp(1.35rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--surface);
+}
+
+.tool-matrix strong {
+  display: block;
+  margin-bottom: 1.6rem;
+  font-size: clamp(1.35rem, 2.6vw, 1.9rem);
+}
+
+.tool-matrix code {
+  display: inline-flex;
+  margin: 0 0.35rem 0.45rem 0;
+  padding: 0.34rem 0.55rem;
+  border: 1px solid rgba(143, 227, 207, 0.22);
+  border-radius: 8px;
+  color: var(--accent-strong);
+  background: rgba(143, 227, 207, 0.035);
+  font-size: 0.78rem;
+  overflow-wrap: anywhere;
+}
+
+.tool-matrix p {
+  margin: 1rem 0 0;
+  color: var(--muted);
+}
+
+.evidence-table {
+  border-top: 1px solid var(--line);
+}
+
+.evidence-table > div {
+  display: grid;
+  grid-template-columns: minmax(115px, 0.22fr) minmax(0, 1fr) minmax(135px, 0.25fr);
+  gap: 1rem;
+  align-items: start;
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.evidence-table strong {
+  color: var(--accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.evidence-table span {
+  color: var(--muted);
+}
+
+.evidence-table a {
+  color: var(--accent-strong);
+  font-weight: 700;
+  text-align: right;
+}
+
+.evolution-list {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+
+.evolution-list li {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.25fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.evolution-list time {
+  color: var(--accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.75rem;
+}
+
+.evolution-list strong {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-size: 1.12rem;
+}
+
+.evolution-list p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.question-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  counter-reset: question;
+}
+
+.question-list p {
+  min-height: 170px;
+  margin: 0;
+  padding: 1.35rem;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  color: #cbd5df;
+  background: rgba(255, 255, 255, 0.018);
+  counter-increment: question;
+}
+
+.question-list p::before {
+  display: block;
+  margin-bottom: 2.4rem;
+  color: var(--accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.72rem;
+  content: "Q" counter(question, decimal-leading-zero);
+}
+
+@media (max-width: 840px) {
+  .system-diagram {
+    grid-template-columns: 1fr;
+    overflow-x: visible;
+  }
+
+  .system-diagram > div {
+    min-width: 0;
+  }
+
+  .system-diagram > b {
+    justify-self: center;
+    transform: rotate(90deg);
+  }
+
+  .tool-matrix,
+  .question-list {
+    grid-template-columns: 1fr;
+  }
+
+  .tool-matrix > div,
+  .question-list p {
+    min-height: auto;
+  }
+
+  .evidence-table > div,
+  .evolution-list li {
+    grid-template-columns: 1fr;
+  }
+
+  .evidence-table a {
+    text-align: left;
+  }
+}
