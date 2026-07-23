@@ -30,6 +30,11 @@ REQUIRED_FILES = (
     "assets/umbrella.css",
     "assets/app.js",
     "assets/mark.svg",
+    "assets/social/default.png",
+    "assets/social/runtime.png",
+    "assets/social/finharness.png",
+    "assets/social/web.png",
+    "feed.xml",
     "site.webmanifest",
     "robots.txt",
     "sitemap.xml",
@@ -335,6 +340,105 @@ def check_manifest() -> None:
             fail(f"site.webmanifest: missing icon {icon['src']!r}")
 
 
+
+def check_png_dimensions(path: Path, expected_width: int, expected_height: int) -> None:
+    data = path.read_bytes()
+    if len(data) < 24 or data[:8] != b"\x89PNG\r\n\x1a\n":
+        fail(f"{path.relative_to(ROOT)}: valid PNG signature is required")
+    width = int.from_bytes(data[16:20], "big")
+    height = int.from_bytes(data[20:24], "big")
+    if (width, height) != (expected_width, expected_height):
+        fail(
+            f"{path.relative_to(ROOT)}: expected {expected_width}x{expected_height}; "
+            f"found {width}x{height}"
+        )
+
+
+def check_distribution_metadata() -> None:
+    required_meta = (
+        'property="og:title"',
+        'property="og:description"',
+        'property="og:type"',
+        'property="og:url"',
+        'property="og:image"',
+        'property="og:image:width" content="1200"',
+        'property="og:image:height" content="630"',
+        'property="og:image:alt"',
+        'name="twitter:card" content="summary_large_image"',
+        'name="twitter:title"',
+        'name="twitter:description"',
+        'name="twitter:image"',
+        'type="application/atom+xml"',
+    )
+    for path in repository_files(".html"):
+        text = path.read_text(encoding="utf-8")
+        relative = path.relative_to(ROOT)
+        for marker in required_meta:
+            if marker not in text:
+                fail(f"{relative}: missing distribution metadata {marker!r}")
+        match = re.search(r'property="og:image" content="([^"]+)"', text)
+        if not match:
+            fail(f"{relative}: og:image is required")
+        image_url = match.group(1)
+        expected_prefix = BASE_URL + "/"
+        if not image_url.startswith(expected_prefix):
+            fail(f"{relative}: og:image must use the canonical site origin")
+        image_path = ROOT / image_url.removeprefix(expected_prefix)
+        if not image_path.is_file():
+            fail(f"{relative}: missing local social image for {image_url!r}")
+
+    home = (ROOT / "index.html").read_text(encoding="utf-8")
+    if '"@type":"WebSite"' not in home or '"@type":"Person"' not in home:
+        fail("index.html: WebSite and Person JSON-LD are required")
+
+    for relative in (
+        "notes/ordivon-runtime-release/index.html",
+        "notes/why-ordivon/index.html",
+    ):
+        text = (ROOT / relative).read_text(encoding="utf-8")
+        for marker in (
+            'property="article:published_time"',
+            'property="article:modified_time"',
+            'property="article:author"',
+            '"@type":"Article"',
+            'class="related-reading"',
+        ):
+            if marker not in text:
+                fail(f"{relative}: missing article metadata {marker!r}")
+
+    for name in ("default.png", "runtime.png", "finharness.png", "web.png"):
+        check_png_dimensions(ROOT / "assets" / "social" / name, 1200, 630)
+
+
+def check_atom_feed() -> None:
+    path = ROOT / "feed.xml"
+    tree = ET.parse(path)
+    namespace = {"atom": "http://www.w3.org/2005/Atom"}
+    root = tree.getroot()
+    if root.tag != "{http://www.w3.org/2005/Atom}feed":
+        fail("feed.xml: Atom feed root is required")
+    self_links = [
+        element.get("href")
+        for element in root.findall("atom:link", namespace)
+        if element.get("rel") == "self"
+    ]
+    if self_links != [f"{BASE_URL}/feed.xml"]:
+        fail("feed.xml: canonical self link is required")
+    entries = root.findall("atom:entry", namespace)
+    if len(entries) != 2:
+        fail(f"feed.xml: expected 2 entries; found {len(entries)}")
+    expected_urls = {
+        f"{BASE_URL}/notes/ordivon-runtime-release/",
+        f"{BASE_URL}/notes/why-ordivon/",
+    }
+    actual_urls = {
+        entry.find("atom:link", namespace).get("href")
+        for entry in entries
+        if entry.find("atom:link", namespace) is not None
+    }
+    if actual_urls != expected_urls:
+        fail(f"feed.xml: entry links mismatch; found={sorted(actual_urls)}")
+
 def check_sitemap() -> None:
     tree = ET.parse(ROOT / "sitemap.xml")
     namespace = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
@@ -371,6 +475,8 @@ def main() -> int:
         check_no_tracking_or_external_network,
         check_css,
         check_manifest,
+        check_distribution_metadata,
+        check_atom_feed,
         check_sitemap,
         check_robots,
     )

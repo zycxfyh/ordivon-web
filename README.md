@@ -26,7 +26,8 @@ canonical repositories.
 /work/ordivon-runtime/                 durable agent execution and recovery runtime
 /work/finharness/                      personal capital review and decision system
 /work/ordivon-web/                     public publishing and deployment surface
-/notes/                                authored public notes and release records
+/notes/                                chronological authored notes and release records
+/feed.xml                              Atom feed for published notes
 /notes/ordivon-runtime-release/        Ordivon Runtime M0–M7 core release note
 /notes/why-ordivon/                    first substantive design note
 /now/                                  current activity and explicit non-offerings
@@ -54,7 +55,8 @@ The check validates:
 
 - required pages and metadata;
 - nested local links, runtime assets, shared navigation, and Home routes;
-- canonical URLs, `sitemap.xml`, `robots.txt`, and `site.webmanifest`;
+- canonical URLs, `sitemap.xml`, `robots.txt`, `site.webmanifest`, and Atom feed;
+- Open Graph, Twitter Card, JSON-LD, and local 1200×630 social images;
 - the exact `ordivon.com` CNAME;
 - the absence of selected analytics, tracking, cookie-writing, and external-network patterns.
 
@@ -72,6 +74,8 @@ assets/styles.css             base visual system and responsive layout
 assets/umbrella.css           multi-page components
 assets/app.js                 minimal progressive enhancement
 assets/mark.svg               site mark and favicon
+assets/social/                local social-preview PNG files
+feed.xml                      Atom feed for Notes
 site.webmanifest              install/display metadata
 sitemap.xml                   explicit maintained-route map
 robots.txt                    crawler guidance
