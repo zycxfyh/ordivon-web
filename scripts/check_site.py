@@ -166,11 +166,20 @@ def fail(message: str) -> None:
     raise AssertionError(message)
 
 
+IGNORED_DIRECTORY_NAMES = {
+    ".git",
+    "node_modules",
+    "artifacts",
+    "playwright-report",
+    "test-results",
+}
+
+
 def repository_files(suffix: str) -> list[Path]:
     return sorted(
         path
         for path in ROOT.rglob(f"*{suffix}")
-        if ".git" not in path.parts and path.is_file()
+        if not IGNORED_DIRECTORY_NAMES.intersection(path.parts) and path.is_file()
     )
 
 
