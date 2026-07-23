@@ -14,18 +14,17 @@ This repository contains a deliberately small multi-page static site:
 - no external fonts, scripts, or image dependencies;
 - deployable from the repository root with GitHub Pages.
 
-The site provides thin, useful surfaces for Home, Work, Notes, Now, About, and
+The site provides thin, useful surfaces for Home, Projects, Notes, Current, About, and
 Contact. Project implementation and technical documentation remain in their
 canonical repositories.
 
 ## Public routes
 
 ```text
-/                                      umbrella entrypoint
-/work/                                 verified project and research directory
+/                                      research and project publishing entrypoint
+/work/                                 maintained engineering project directory
 /work/ordivon-runtime/                 durable agent execution and recovery runtime
 /work/finharness/                      personal capital review and decision system
-/work/ordinary-prosperity/             comparative economic research program
 /work/ordivon-web/                     public publishing and deployment surface
 /notes/                                authored public notes and release records
 /notes/ordivon-runtime-release/        Ordivon Runtime M0–M7 core release note

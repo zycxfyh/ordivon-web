@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Explore Ordivon’s agent runtime, capital-decision system, long-term economic research, and public publishing infrastructure." />
+    <meta name="description" content="Explore Ordivon Runtime, FinHarness, and Ordivon Web as evolving engineering and research projects with distinct questions, methods, evidence, and boundaries." />
     <meta name="theme-color" content="#0b0f14" />
     <link rel="canonical" href="https://ordivon.com/work/" />
     <meta property="og:url" content="https://ordivon.com/work/" />
-    <title>Work — Ordivon</title>
+    <title>Projects — Ordivon</title>
     <link rel="icon" href="../assets/mark.svg" type="image/svg+xml" />
     <link rel="manifest" href="../site.webmanifest" />
     <link rel="stylesheet" href="../assets/styles.css" />
@@ -18,65 +18,63 @@
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header" aria-label="Primary navigation">
       <a class="brand" href="../" aria-label="Ordivon home"><img src="../assets/mark.svg" alt="" width="28" height="28" /><span>Ordivon</span></a>
-      <nav><a href="./" aria-current="page">Work</a><a href="../notes/">Notes</a><a href="../now/">Current</a><a href="../about/">About</a><a href="../contact/">Contact</a></nav>
+      <nav class="desktop-navigation"><a href="../work/" aria-current="page">Projects</a><a href="../notes/">Notes</a><a href="../now/">Current</a><a href="../about/">About</a><a href="https://github.com/zycxfyh">GitHub <span aria-hidden="true">↗</span></a></nav>
+      <details class="mobile-navigation">
+        <summary class="mobile-navigation-summary">Menu</summary>
+        <nav aria-label="Mobile navigation"><a href="../work/" aria-current="page">Projects</a><a href="../notes/">Notes</a><a href="../now/">Current</a><a href="../about/">About</a><a href="https://github.com/zycxfyh">GitHub <span aria-hidden="true">↗</span></a><a href="../contact/">Contact</a></nav>
+      </details>
     </header>
 
     <main id="main" class="page-main">
       <header class="page-hero">
-        <p class="eyebrow">Work</p>
-        <h1>Infrastructure, decisions, research, and publishing.</h1>
-        <p class="lede">Ordivon is a connected portfolio rather than one monolithic product. Each project owns a different layer: durable agent execution, capital-decision review, comparative prosperity research, or public explanation.</p>
+        <p class="eyebrow">Projects</p>
+        <h1>Independent projects shaped by real questions and revision.</h1>
+        <p class="lede">Each project begins from a different problem and owns its own technical truth. This directory explains the question, current approach, present boundary, and public evidence without turning the work into one monolithic platform.</p>
       </header>
 
-      <section class="portfolio-path" aria-label="Portfolio relationship">
-        <div><span>Execute</span><strong>Ordivon Runtime</strong><p>Make agent work durable, observable, cancellable, and recoverable.</p></div>
-        <div><span>Decide</span><strong>FinHarness</strong><p>Turn verified capital evidence into bounded human review and later learning.</p></div>
-        <div><span>Research</span><strong>Ordinary Prosperity</strong><p>Study how labor, assets, institutions, and life stages create economic choice.</p></div>
-        <div><span>Publish</span><strong>Ordivon Web</strong><p>Connect the projects through stable public explanations and authored notes.</p></div>
+      <section class="portfolio-path portfolio-path-three" aria-label="Project roles">
+        <div><span>Execute</span><strong>Ordivon Runtime</strong><p>Preserve execution identity and recovery for capable agents doing real local work.</p></div>
+        <div><span>Decide</span><strong>FinHarness</strong><p>Connect capital truth, evidence, judgment, action, reconciliation, and review.</p></div>
+        <div><span>Publish</span><strong>Ordivon Web</strong><p>Make the projects, notes, evidence, changes, and current questions legible in public.</p></div>
       </section>
 
       <section class="work-catalog" aria-labelledby="projects-title">
-        <h2 id="projects-title" class="visually-hidden">Projects and research</h2>
+        <h2 id="projects-title" class="visually-hidden">Maintained projects</h2>
 
         <article class="catalog-card">
-          <div class="catalog-card-header"><p class="status status-foundation"><span aria-hidden="true"></span> Agent runtime</p><p class="catalog-index">01</p></div>
+          <div class="catalog-card-header"><p class="status status-foundation"><span aria-hidden="true"></span> Runtime adoption</p><p class="catalog-index">01</p></div>
           <h2>Ordivon Runtime</h2>
-          <p>A local execution and recovery runtime for capable agents. It owns durable Job and Attempt identity, process lifecycle, bounded output, cancellation, artifacts, and restart recovery while leaving reasoning and implementation to the agent.</p>
-          <dl class="catalog-meta"><div><dt>Role</dt><dd>Durable local execution</dd></div><div><dt>Current surface</dt><dd>10 MCP tools and one runtime</dd></div><div><dt>Focus</dt><dd>Jobs, processes, artifacts, recovery</dd></div></dl>
+          <p class="project-question"><strong>Question:</strong> what execution truth must survive when an agent client disconnects, a command continues, output outgrows context, or a later session must recover the result?</p>
+          <p>A local execution and recovery Runtime that owns durable Job and Attempt identity, process lifecycle, bounded output, cancellation, Artifacts, and reconciliation while leaving the agent loop and ordinary engineering work outside the Runtime.</p>
+          <dl class="catalog-meta"><div><dt>Method</dt><dd>Thin Rust MCP and host primitives</dd></div><div><dt>Current state</dt><dd>10-tool core accepted; adoption active</dd></div><div><dt>Evidence</dt><dd>Source, tests, dogfood, acceptance report</dd></div></dl>
           <div class="catalog-actions"><a class="text-link" href="ordivon-runtime/">Read project page <span aria-hidden="true">→</span></a><a class="text-link text-link-muted" href="https://github.com/zycxfyh/Ordivon">Repository <span aria-hidden="true">↗</span></a></div>
         </article>
 
         <article class="catalog-card">
-          <div class="catalog-card-header"><p class="status status-current"><span aria-hidden="true"></span> Capital system</p><p class="catalog-index">02</p></div>
+          <div class="catalog-card-header"><p class="status status-current"><span aria-hidden="true"></span> Active engineering</p><p class="catalog-index">02</p></div>
           <h2>FinHarness</h2>
-          <p>A local-first personal capital review and decision system that connects receipt-backed state, bounded observations, research, candidate generation, human judgment, simulated execution, and later review.</p>
-          <dl class="catalog-meta"><div><dt>Role</dt><dd>Capital review and decision system</dd></div><div><dt>Current boundary</dt><dd>Local state and simulated execution</dd></div><div><dt>Focus</dt><dd>Truth, review, authority, learning</dd></div></dl>
+          <p class="project-question"><strong>Question:</strong> how can a person reconstruct current capital state, reason with uncertainty, make a bounded decision, and later review whether the process—not only the outcome—was sound?</p>
+          <p>A local-first personal capital system connecting receipt-backed state, research, risk, candidate generation, human judgment, simulated execution, reconciliation, and learning.</p>
+          <dl class="catalog-meta"><div><dt>Method</dt><dd>Domain models, receipts, scenarios, review</dd></div><div><dt>Current state</dt><dd>Large working system under simplification</dd></div><div><dt>Evidence</dt><dd>Source, tests, PR history, current-state docs</dd></div></dl>
           <div class="catalog-actions"><a class="text-link" href="finharness/">Read project page <span aria-hidden="true">→</span></a><a class="text-link text-link-muted" href="https://github.com/zycxfyh/FinHarness">Repository <span aria-hidden="true">↗</span></a></div>
         </article>
 
         <article class="catalog-card">
-          <div class="catalog-card-header"><p class="status status-research"><span aria-hidden="true"></span> Research program</p><p class="catalog-index">03</p></div>
-          <h2>Ordinary Prosperity Research</h2>
-          <p>Open comparative research on how labor income, disposable surplus, asset ownership, institutions, family formation, and life stages shape resilience and economic optionality.</p>
-          <dl class="catalog-meta"><div><dt>Role</dt><dd>Long-horizon comparative research</dd></div><div><dt>Current stage</dt><dd>v0.1 Research Foundation</dd></div><div><dt>Focus</dt><dd>Income, capital, institutions, choice</dd></div></dl>
-          <div class="catalog-actions"><a class="text-link" href="ordinary-prosperity/">Read project page <span aria-hidden="true">→</span></a><a class="text-link text-link-muted" href="https://github.com/zycxfyh/ordinary-prosperity-research">Repository <span aria-hidden="true">↗</span></a></div>
-        </article>
-
-        <article class="catalog-card">
-          <div class="catalog-card-header"><p class="status status-experimental"><span aria-hidden="true"></span> Public publishing</p><p class="catalog-index">04</p></div>
+          <div class="catalog-card-header"><p class="status status-experimental"><span aria-hidden="true"></span> Public publishing</p><p class="catalog-index">03</p></div>
           <h2>Ordivon Web</h2>
-          <p>The dependency-free public entrypoint and publishing surface for project orientation, authored notes, current priorities, contribution routes, and inspectable deployment records.</p>
-          <dl class="catalog-meta"><div><dt>Role</dt><dd>Public map and knowledge surface</dd></div><div><dt>Delivery</dt><dd>Static GitHub Pages site</dd></div><div><dt>Focus</dt><dd>Clarity, provenance, continuity</dd></div></dl>
+          <p class="project-question"><strong>Question:</strong> how can evolving technical and research work be explained clearly without duplicating the mutable truth owned by its repositories?</p>
+          <p>A dependency-free publication and navigation surface for project orientation, authored notes, release records, current questions, public evidence, and participation routes.</p>
+          <dl class="catalog-meta"><div><dt>Method</dt><dd>Static editorial pages and thin verification</dd></div><div><dt>Current state</dt><dd>Multi-page public site under refinement</dd></div><div><dt>Evidence</dt><dd>Repository history, CI, live deployment</dd></div></dl>
           <div class="catalog-actions"><a class="text-link" href="ordivon-web/">Read project page <span aria-hidden="true">→</span></a><a class="text-link text-link-muted" href="https://github.com/zycxfyh/ordivon-web">Repository <span aria-hidden="true">↗</span></a></div>
         </article>
       </section>
 
       <section class="section section-simple" aria-labelledby="portfolio-title">
-        <div class="section-heading"><p class="section-index">Portfolio</p><h2 id="portfolio-title">The projects exchange evidence, methods, and lessons—not ownership.</h2></div>
-        <div class="section-copy"><p>Each repository remains independently understandable and owns its current technical truth. Ordivon Runtime can support engineering work without becoming a FinHarness component. FinHarness can apply useful execution and recovery patterns without turning its financial domain model into general infrastructure. Ordinary Prosperity remains a research program rather than a product dependency.</p><p>Ordivon Web connects these surfaces through concise public explanations while avoiding a second mutable registry of repository facts.</p></div>
+        <div class="section-heading"><p class="section-index">Relationship</p><h2 id="portfolio-title">The projects exchange methods and lessons without sharing one ontology.</h2></div>
+        <div class="section-copy"><p>Ordivon Runtime can support engineering work without becoming a FinHarness component. FinHarness can adopt useful execution and recovery patterns without turning its financial domain into general infrastructure. Ordivon Web can explain both without becoming the canonical registry of either.</p><p>Source code, tests, data, Git identity, and each repository’s current-state material remain the owners of current facts. The website provides orientation, interpretation, and routes to evidence.</p></div>
       </section>
     </main>
 
-    <footer class="site-footer"><div><p>© <span id="year">2026</span> Ordivon</p><p>Runtime · Capital decisions · Research · Publishing</p></div><nav aria-label="Footer navigation"><a href="../">Home</a><a href="../notes/">Notes</a><a href="../now/">Current</a><a href="../about/">About</a><a href="../contact/">Contact</a></nav></footer>
+    <footer class="site-footer"><div><p>© <span id="year">2026</span> Ordivon</p><p>Agent infrastructure · Capital systems · Public publishing</p></div><nav aria-label="Footer navigation"><a href="../">Home</a><a href="../notes/">Notes</a><a href="../now/">Current</a><a href="../about/">About</a><a href="../contact/">Contact</a></nav></footer>
   </body>
 </html>
