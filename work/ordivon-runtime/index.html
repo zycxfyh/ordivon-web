@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Ordivon Runtime is a completed thin execution and recovery core for capable AI agents, with ten production-tested tools, durable jobs, cancellation, artifacts, and restart recovery." />
+    <meta name="description" content="Ordivon Runtime is a trusted-local execution and recovery Runtime for capable AI agents, preserving durable Job, Attempt, process, result, and Artifact truth." />
     <meta name="theme-color" content="#0b0f14" />
     <link rel="canonical" href="https://ordivon.com/work/ordivon-runtime/" />
     <meta property="og:url" content="https://ordivon.com/work/ordivon-runtime/" />
@@ -19,58 +19,82 @@
     <header class="site-header" aria-label="Primary navigation">
       <a class="brand" href="../../" aria-label="Ordivon home"><img src="../../assets/mark.svg" alt="" width="28" height="28" /><span>Ordivon</span></a>
       <nav class="desktop-navigation"><a href="../../work/" aria-current="page">Projects</a><a href="../../notes/">Notes</a><a href="../../now/">Current</a><a href="../../about/">About</a><a href="https://github.com/zycxfyh">GitHub <span aria-hidden="true">↗</span></a></nav>
-      <details class="mobile-navigation">
-        <summary class="mobile-navigation-summary">Menu</summary>
-        <nav aria-label="Mobile navigation"><a href="../../work/" aria-current="page">Projects</a><a href="../../notes/">Notes</a><a href="../../now/">Current</a><a href="../../about/">About</a><a href="https://github.com/zycxfyh">GitHub <span aria-hidden="true">↗</span></a><a href="../../contact/">Contact</a></nav>
-      </details>
+      <details class="mobile-navigation"><summary class="mobile-navigation-summary">Menu</summary><nav aria-label="Mobile navigation"><a href="../../work/" aria-current="page">Projects</a><a href="../../notes/">Notes</a><a href="../../now/">Current</a><a href="../../about/">About</a><a href="https://github.com/zycxfyh">GitHub <span aria-hidden="true">↗</span></a><a href="../../contact/">Contact</a></nav></details>
     </header>
 
     <main id="main" class="page-main">
       <header class="project-hero">
-        <p class="eyebrow">Runtime · Core accepted · Production adoption</p>
-        <h1>Durable execution for capable agents.</h1>
-        <p class="lede">Ordivon Runtime is a local execution and recovery layer. The agent owns reasoning and operation; the runtime owns durable execution truth, process identity, bounded observation, cancellation, artifacts, and recovery after interruption.</p>
-        <div class="actions"><a class="button button-primary" href="../../notes/ordivon-runtime-release/">Read the release note</a><a class="button button-secondary" href="https://github.com/zycxfyh/Ordivon">Open repository</a></div>
+        <p class="eyebrow">Agent infrastructure · Trusted-local Runtime · Adoption</p>
+        <h1>Preserve the execution facts an agent cannot reconstruct.</h1>
+        <p class="lede">Ordivon Runtime sits between an MCP client and the local host. The agent continues to reason, choose tools, and write implementation; Ordivon owns the narrow execution identity, process tree, bounded output, cancellation intent, result, and Artifact state required after interruption.</p>
+        <div class="actions"><a class="button button-primary" href="../../notes/ordivon-runtime-release/">Read the release record</a><a class="button button-secondary" href="https://github.com/zycxfyh/Ordivon">Inspect the repository</a></div>
       </header>
 
-      <section class="project-facts" aria-label="Project facts">
-        <div><span>Public protocol</span><strong>10 MCP tools</strong></div>
-        <div><span>Acceptance</span><strong>10/10 positive paths passed</strong></div>
-        <div><span>Execution truth</span><strong>SQLite, systemd, cgroups, Artifacts</strong></div>
-        <div><span>Current phase</span><strong>Real use and production cutover</strong></div>
+      <section class="project-facts" aria-label="Current project facts">
+        <div><span>Current surface</span><strong>10 MCP tools</strong></div>
+        <div><span>Runtime truth</span><strong>Git, SQLite, systemd/cgroups, files</strong></div>
+        <div><span>Authority model</span><strong>Trusted-local service-user authority</strong></div>
+        <div><span>Current phase</span><strong>Real use and recovery observation</strong></div>
       </section>
 
-      <section class="section section-simple" aria-labelledby="problem-title">
-        <div class="section-heading"><p class="section-index">Purpose</p><h2 id="problem-title">Keep execution reliable without turning the agent into a captive workflow.</h2></div>
-        <div class="section-copy"><p>Agent reasoning can be flexible, exploratory, and model-specific. Host execution cannot be ephemeral. Commands need stable identity, observable state, bounded output, cancellation, restart recovery, and durable artifacts even when the conversation or client connection disappears.</p><p>Ordivon isolates that small non-reconstructable core. Git, source, tests, and live system state remain the primary truth; the runtime persists only the execution facts required to continue or recover work.</p></div>
+      <section class="section section-simple" aria-labelledby="question-title">
+        <div class="section-heading"><p class="section-index">Central question</p><h2 id="question-title">What must remain true when a capable agent loses its client connection?</h2></div>
+        <div class="section-copy"><p>A conversation can reconstruct a plan. It cannot reliably reconstruct whether a process started, which command tree still owns the host, whether cancellation was requested, which bytes were retained, or whether a later result belongs to the original execution identity.</p><p>Ordivon exists to preserve those non-reconstructable facts without replacing the agent loop, Git, the repository, mature host CLIs, or the operating system.</p></div>
       </section>
 
-      <section class="section section-simple" aria-labelledby="flow-title">
-        <div class="section-heading"><p class="section-index">Execution path</p><h2 id="flow-title">A thin runtime between intent and the host.</h2></div>
-        <div class="project-flow" aria-label="Ordivon execution path">
-          <div><span>01</span><strong>Human intent</strong><p>Defines the objective, constraints, and delegated authority.</p></div>
-          <div><span>02</span><strong>Agent operation</strong><p>Reasons, chooses tools, and adapts implementation to observed results.</p></div>
-          <div><span>03</span><strong>Durable execution</strong><p>Owns Job and Attempt identity, process lifecycle, output bounds, and artifacts.</p></div>
-          <div><span>04</span><strong>Recovery or continuation</strong><p>Lets a later client observe, cancel, inspect, or continue from durable facts.</p></div>
+      <section class="section section-simple" aria-labelledby="architecture-title">
+        <div class="section-heading"><p class="section-index">Current architecture</p><h2 id="architecture-title">One active path from authenticated client to recoverable result.</h2></div>
+        <div class="system-diagram" role="img" aria-label="MCP client through Cloudflare Access and Tunnel to Ordivon MCP, execution registry, systemd process tree, result files, and reconciliation">
+          <div><span>Client</span><strong>MCP client</strong><small>Intent and tool calls</small></div><b aria-hidden="true">→</b>
+          <div><span>Remote boundary</span><strong>Cloudflare Access + Tunnel</strong><small>Authenticated route to loopback</small></div><b aria-hidden="true">→</b>
+          <div><span>Protocol</span><strong>ordivon-mcp</strong><small>10 public tools</small></div><b aria-hidden="true">→</b>
+          <div><span>Runtime</span><strong>ordivon-exec</strong><small>Admission and identity</small></div><b aria-hidden="true">→</b>
+          <div><span>Durable truth</span><strong>SQLite + result files</strong><small>Job, Attempt, cancellation, Digests</small></div><b aria-hidden="true">→</b>
+          <div><span>Live ownership</span><strong>systemd + cgroup</strong><small>Complete command tree</small></div>
         </div>
       </section>
 
-      <section class="section section-simple" aria-labelledby="defaults-title">
-        <div class="section-heading"><p class="section-index">Engineering defaults</p><h2 id="defaults-title">Thin context, thin recovery, explicit responsibility.</h2></div>
-        <div class="capability-grid">
-          <article><h3>Thin context</h3><p>Use source, tests, Git, live state, and a few current documents instead of reconstructing the repository as prose.</p></article>
-          <article><h3>Thin recovery</h3><p>Persist only execution facts that cannot be reconstructed from ordinary engineering truth.</p></article>
-          <article><h3>Reallocated responsibility</h3><p>The user owns intent, the agent owns implementation and operation, and the runtime owns durable execution truth.</p></article>
-          <article><h3>Growth by failure</h3><p>Add a capability only when repeated real tasks prove that ordinary host command execution cannot provide the required semantics.</p></article>
+      <section class="section section-simple" aria-labelledby="surface-title">
+        <div class="section-heading"><p class="section-index">Public surface</p><h2 id="surface-title">A small protocol around workspace, execution, observation, and evidence.</h2></div>
+        <div class="tool-matrix" aria-label="Ordivon Runtime public tools">
+          <div><strong>Workspace</strong><code>workspace.open</code><code>workspace.close</code><code>workspace.read</code><code>workspace.mutate</code><code>workspace.diff</code></div>
+          <div><strong>Execution</strong><code>workspace.exec</code><p>Idempotent transactional Job and Attempt admission with one active command tree per Workspace.</p></div>
+          <div><strong>Recovery</strong><code>task.observe</code><code>task.cancel</code><code>task.list</code><p>Observe terminal or live state, persist cancellation before termination, and recover work across clients.</p></div>
+          <div><strong>Artifacts</strong><code>artifact.read</code><p>Read bounded Digest-bound output by Job and Artifact identity.</p></div>
         </div>
+      </section>
+
+      <section class="section section-simple" aria-labelledby="state-title">
+        <div class="section-heading"><p class="section-index">Current state</p><h2 id="state-title">Current facts, historical evidence, and boundaries are kept separate.</h2></div>
+        <div class="evidence-table" role="table" aria-label="Ordivon Runtime evidence and boundaries">
+          <div role="row"><strong role="cell">Current fact</strong><span role="cell">One Rust MCP origin exposes ten tools and one transactional global execution limit.</span><a role="cell" href="https://github.com/zycxfyh/Ordivon/blob/main/docs/current-state.md">Current state ↗</a></div>
+          <div role="row"><strong role="cell">Current fact</strong><span role="cell">Git owns code identity; SQLite owns execution identity; systemd/cgroups own live process trees; bounded files own result bytes.</span><a role="cell" href="https://github.com/zycxfyh/Ordivon/blob/main/docs/architecture/runtime.md">Architecture ↗</a></div>
+          <div role="row"><strong role="cell">Historical evidence</strong><span role="cell">The 23 July 2026 release record summarizes the M0–M7 simplification and observed ten-tool acceptance.</span><a role="cell" href="../../notes/ordivon-runtime-release/">Release record →</a></div>
+          <div role="row"><strong role="cell">Boundary</strong><span role="cell">Workspace isolation protects Git state; it is not a host security sandbox. Trusted-local tasks inherit the service user's accessible authority.</span><a role="cell" href="https://github.com/zycxfyh/Ordivon/blob/main/docs/operations/runbook.md">Runbook ↗</a></div>
+        </div>
+      </section>
+
+      <section class="section section-simple" aria-labelledby="evolution-title">
+        <div class="section-heading"><p class="section-index">Evolution</p><h2 id="evolution-title">The project became smaller as the problem became clearer.</h2></div>
+        <ol class="evolution-list">
+          <li><time>Early direction</time><div><strong>Govern AI work through a broad platform.</strong><p>The project accumulated policy, registry, proof, document, and workflow concepts before real use established which facts had to be durable.</p></div></li>
+          <li><time>M0–M7</time><div><strong>Build and test an execution core.</strong><p>Workspace identity, transactional execution, process ownership, cancellation, bounded output, Artifacts, and recovery became the concrete center.</p></div></li>
+          <li><time>22–23 Jul 2026</time><div><strong>Delete the speculative platform around the core.</strong><p>The active documentation, protocol, deployment, and repository were reduced to one trusted-local Runtime path.</p></div></li>
+          <li><time>Current</time><div><strong>Let real tasks decide what remains missing.</strong><p>New capabilities require repeated operational failure that mature host tools through <code>workspace.exec</code> cannot solve.</p></div></li>
+        </ol>
+      </section>
+
+      <section class="section section-simple" aria-labelledby="open-title">
+        <div class="section-heading"><p class="section-index">Open questions</p><h2 id="open-title">The remaining uncertainty is operational, not a request for another platform layer.</h2></div>
+        <div class="question-list"><p>Which real tasks still require tools outside the ten-tool surface?</p><p>How reliably do backup, restore, restart reconciliation, and cancellation behave under repeated long-running work?</p><p>Where should users place an external VM or container boundary when trusted-local authority is too broad?</p></div>
       </section>
 
       <section class="project-links" aria-labelledby="links-title">
-        <div><p class="section-index">Explore</p><h2 id="links-title">Inspect the release and current system.</h2><p>The release note explains the architectural turn and acceptance result. The repository current-state document and acceptance report remain the exact sources for current capability and observed protocol evidence.</p></div>
-        <div class="link-stack"><a href="../../notes/ordivon-runtime-release/">Release note <span aria-hidden="true">→</span></a><a href="https://github.com/zycxfyh/Ordivon">Repository <span aria-hidden="true">↗</span></a><a href="https://github.com/zycxfyh/Ordivon/blob/main/docs/current-state.md">Current state <span aria-hidden="true">↗</span></a><a href="https://github.com/zycxfyh/Ordivon/blob/main/docs/operations/post-simplification-acceptance-report-2026-07-22.md">Acceptance evidence <span aria-hidden="true">↗</span></a></div>
+        <div><p class="section-index">Evidence and outputs</p><h2 id="links-title">Follow current truth to its owner.</h2><p>The site explains the inquiry. The repository, current-state document, architecture, tests, and runbook own current technical claims.</p></div>
+        <div class="link-stack"><a href="https://github.com/zycxfyh/Ordivon">Repository <span aria-hidden="true">↗</span></a><a href="https://github.com/zycxfyh/Ordivon/blob/main/docs/current-state.md">Current state <span aria-hidden="true">↗</span></a><a href="https://github.com/zycxfyh/Ordivon/blob/main/docs/architecture/runtime.md">Runtime architecture <span aria-hidden="true">↗</span></a><a href="https://github.com/zycxfyh/Ordivon/tree/main/crates/ordivon-exec/tests">Transactional tests <span aria-hidden="true">↗</span></a><a href="https://github.com/zycxfyh/Ordivon/blob/main/scripts/mcp_e2e.py">MCP E2E script <span aria-hidden="true">↗</span></a><a href="../../notes/ordivon-runtime-release/">Release record <span aria-hidden="true">→</span></a></div>
       </section>
     </main>
 
-    <footer class="site-footer"><div><p>© <span id="year">2026</span> Ordivon</p><p>Durable execution · Recovery · Agent infrastructure</p></div><nav aria-label="Footer navigation"><a href="../../">Home</a><a href="../">Projects</a><a href="../../notes/">Notes</a><a href="../../now/">Current</a><a href="../../about/">About</a></nav></footer>
+    <footer class="site-footer"><div><p>© <span id="year">2026</span> Ordivon</p><p>Execution identity · Process ownership · Recovery</p></div><nav aria-label="Footer navigation"><a href="../../">Home</a><a href="../">Projects</a><a href="../../notes/">Notes</a><a href="../../now/">Current</a><a href="../../about/">About</a></nav></footer>
   </body>
 </html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="FinHarness is a local-first personal capital review and decision system with receipt-backed state, governed human review, and simulated execution." />
+    <meta name="description" content="FinHarness is a local-first personal capital review and decision system connecting receipt-backed state, evidence, human judgment, simulated execution, reconciliation, and learning." />
     <meta name="theme-color" content="#0b0f14" />
     <link rel="canonical" href="https://ordivon.com/work/finharness/" />
     <meta property="og:url" content="https://ordivon.com/work/finharness/" />
@@ -19,54 +19,82 @@
     <header class="site-header" aria-label="Primary navigation">
       <a class="brand" href="../../" aria-label="Ordivon home"><img src="../../assets/mark.svg" alt="" width="28" height="28" /><span>Ordivon</span></a>
       <nav class="desktop-navigation"><a href="../../work/" aria-current="page">Projects</a><a href="../../notes/">Notes</a><a href="../../now/">Current</a><a href="../../about/">About</a><a href="https://github.com/zycxfyh">GitHub <span aria-hidden="true">↗</span></a></nav>
-      <details class="mobile-navigation">
-        <summary class="mobile-navigation-summary">Menu</summary>
-        <nav aria-label="Mobile navigation"><a href="../../work/" aria-current="page">Projects</a><a href="../../notes/">Notes</a><a href="../../now/">Current</a><a href="../../about/">About</a><a href="https://github.com/zycxfyh">GitHub <span aria-hidden="true">↗</span></a><a href="../../contact/">Contact</a></nav>
-      </details>
+      <details class="mobile-navigation"><summary class="mobile-navigation-summary">Menu</summary><nav aria-label="Mobile navigation"><a href="../../work/" aria-current="page">Projects</a><a href="../../notes/">Notes</a><a href="../../now/">Current</a><a href="../../about/">About</a><a href="https://github.com/zycxfyh">GitHub <span aria-hidden="true">↗</span></a><a href="../../contact/">Contact</a></nav></details>
     </header>
 
     <main id="main" class="page-main">
       <header class="project-hero">
-        <p class="eyebrow">Capital system · Active engineering</p>
-        <h1>Review material capital decisions from verified state.</h1>
-        <p class="lede">FinHarness is a local-first personal capital review and decision system. It mirrors capital evidence into receipt-backed state, derives bounded observations and candidates, supports governed human review, and keeps execution on a simulated substrate.</p>
-        <div class="actions"><a class="button button-primary" href="https://github.com/zycxfyh/FinHarness">Open repository</a><a class="button button-secondary" href="../">Back to portfolio</a></div>
+        <p class="eyebrow">Capital systems · Local-first · Active engineering</p>
+        <h1>Make a material capital decision reviewable before and after the outcome.</h1>
+        <p class="lede">FinHarness reconstructs capital evidence into local receipt-backed state, derives bounded observations and decision candidates, preserves human decide/defer/reject authority, and records simulated action and later review. Its purpose is not to predict wealth; it is to make capital judgment more visible, disciplined, and learnable.</p>
+        <div class="actions"><a class="button button-primary" href="https://github.com/zycxfyh/FinHarness">Inspect the repository</a><a class="button button-secondary" href="https://github.com/zycxfyh/FinHarness/blob/main/docs/current-system.md">Read current system</a></div>
       </header>
 
-      <section class="project-facts" aria-label="Project facts">
-        <div><span>Product objective</span><strong>Verified material-decision review</strong></div>
-        <div><span>Capital truth</span><strong>Receipt-backed local state</strong></div>
-        <div><span>Decision boundary</span><strong>Human decide, defer, or reject</strong></div>
-        <div><span>Execution boundary</span><strong>Simulation only</strong></div>
+      <section class="project-facts" aria-label="Current project facts">
+        <div><span>Current objective</span><strong>Verified material decision review</strong></div>
+        <div><span>State boundary</span><strong>Receipt-backed local capital truth</strong></div>
+        <div><span>Decision authority</span><strong>Human decide, defer, or reject</strong></div>
+        <div><span>Execution boundary</span><strong>Canonical simulated adapter only</strong></div>
+      </section>
+
+      <section class="section section-simple" aria-labelledby="question-title">
+        <div class="section-heading"><p class="section-index">Central question</p><h2 id="question-title">Can a person judge a capital action from a state they can verify—and later learn from the process rather than only the return?</h2></div>
+        <div class="section-copy"><p>Most personal finance tools separate account data, portfolio exposure, research, proposed action, execution, and retrospective review. FinHarness explores whether these fragments can form one inspectable decision record without allowing an AI explanation, a readiness flag, or a simulated result to silently become execution authority.</p><p>The first product wedge is material decision review: establish current state, expose risk and missing evidence, compare bounded alternatives, record the human decision, and return later to compare expectation with outcome.</p></div>
       </section>
 
       <section class="section section-simple" aria-labelledby="journey-title">
-        <div class="section-heading"><p class="section-index">Product journey</p><h2 id="journey-title">Turn imported evidence into a reviewable decision.</h2></div>
-        <div class="project-flow" aria-label="FinHarness decision journey">
-          <div><span>01</span><strong>Trusted capital state</strong><p>Import contract-compliant CSV or Beancount evidence into a receipt-backed state model.</p></div>
-          <div><span>02</span><strong>Admitted evidence</strong><p>Expose truth readiness, observations, exposures, and bounded research inputs.</p></div>
-          <div><span>03</span><strong>Decision candidate</strong><p>Build a reviewable proposal with rationale, risks, and explicit boundaries.</p></div>
-          <div><span>04</span><strong>Human judgment</strong><p>Decide, defer, or reject before any simulated execution path proceeds.</p></div>
-          <div><span>05</span><strong>Outcome review</strong><p>Reconcile what happened and preserve evidence for later learning.</p></div>
+        <div class="section-heading"><p class="section-index">Current journey</p><h2 id="journey-title">A capital decision moves through explicit stages.</h2></div>
+        <div class="system-diagram system-diagram-capital" role="img" aria-label="External capital evidence flows through importer, receipt-backed state, exposure and Daily Brief, decision candidate, human review, simulated execution, reconciliation and learning">
+          <div><span>Evidence</span><strong>CSV or Beancount</strong><small>Read-only production boundary</small></div><b aria-hidden="true">→</b>
+          <div><span>State</span><strong>Receipt-backed State Core</strong><small>Admission and freshness</small></div><b aria-hidden="true">→</b>
+          <div><span>Observation</span><strong>Exposure + Daily Brief</strong><small>Bounded current view</small></div><b aria-hidden="true">→</b>
+          <div><span>Candidate</span><strong>Decision proposal</strong><small>Rationale, risk, alternatives</small></div><b aria-hidden="true">→</b>
+          <div><span>Authority</span><strong>Human review</strong><small>Decide, defer, reject</small></div><b aria-hidden="true">→</b>
+          <div><span>Learning</span><strong>Simulation + review</strong><small>Reconcile and retain evidence</small></div>
         </div>
       </section>
 
       <section class="section section-simple" aria-labelledby="surface-title">
-        <div class="section-heading"><p class="section-index">Current surface</p><h2 id="surface-title">A bounded system, not an autonomous capital manager.</h2></div>
+        <div class="section-heading"><p class="section-index">Current surface</p><h2 id="surface-title">The working system now has one canonical synthetic acceptance journey.</h2></div>
         <div class="capability-grid">
-          <article><h3>Capital evidence</h3><p>Read-only imports, receipt-backed state, truth-readiness reporting, exposure, and Daily Brief surfaces.</p></article>
-          <article><h3>Decision review</h3><p>Governed proposal generation, local human review, and a separate loopback-only review mode.</p></article>
-          <article><h3>Agent participation</h3><p>Bounded read, explain, and candidate-producing surfaces under FinHarness-owned admission, authority, receipts, and stop conditions.</p></article>
-          <article><h3>Explicit non-capabilities</h3><p>No real broker SDK, funded account, external venue submission, transfer, tax submission, or delegated autonomous capital management.</p></article>
+          <article><h3>Capital input</h3><p>Production import boundaries accept FinHarness-contract CSV and read-only Beancount evidence, then expose capital-truth readiness separately from evidence integrity.</p></article>
+          <article><h3>Observation</h3><p>Exposure, positions, timeline evidence, Daily Brief, and candidate scans make the current state and material concerns visible.</p></article>
+          <article><h3>Human review</h3><p>A read-only cockpit and a separate loopback-only review mode preserve explicit human decisions while reusing the same state and receipt locations across restarts.</p></article>
+          <article><h3>Synthetic acceptance</h3><p><code>task acceptance:capital-review</code> proves canonical import, admitted truth, exposure, Daily Brief, candidate generation, review, blocked valuation, receipts, restart, and identity-preserving replay.</p></article>
         </div>
       </section>
 
+      <section class="section section-simple" aria-labelledby="state-title">
+        <div class="section-heading"><p class="section-index">Evidence and boundaries</p><h2 id="state-title">Product direction and current capability are deliberately kept apart.</h2></div>
+        <div class="evidence-table" role="table" aria-label="FinHarness evidence and boundaries">
+          <div role="row"><strong role="cell">Current fact</strong><span role="cell">Current main supports receipt-backed state, bounded observations, candidate generation, governed local review, and simulated execution.</span><a role="cell" href="https://github.com/zycxfyh/FinHarness/blob/main/docs/current-system.md">Current system ↗</a></div>
+          <div role="row"><strong role="cell">Current fact</strong><span role="cell">The canonical synthetic acceptance uses checked-in templates and runtime clocks; it does not connect a broker or grant funded authority.</span><a role="cell" href="https://github.com/zycxfyh/FinHarness/commit/6e8e199">Acceptance change ↗</a></div>
+          <div role="row"><strong role="cell">Direction</strong><span role="cell">The longer-term thesis is an Agent-native personal capital operating system built around accumulating state and decision records.</span><a role="cell" href="https://github.com/zycxfyh/FinHarness/blob/main/docs/product/product-thesis.md">Product thesis ↗</a></div>
+          <div role="row"><strong role="cell">Boundary</strong><span role="cell">No real broker SDK, funded account, live venue submission, transfer, tax submission, or delegated autonomous capital manager exists on current main.</span><a role="cell" href="https://github.com/zycxfyh/FinHarness#current-boundary">README boundary ↗</a></div>
+        </div>
+      </section>
+
+      <section class="section section-simple" aria-labelledby="evolution-title">
+        <div class="section-heading"><p class="section-index">Evolution</p><h2 id="evolution-title">The system moved from governance accumulation toward a usable capital-review path.</h2></div>
+        <ol class="evolution-list">
+          <li><time>Foundation</time><div><strong>Model capital truth, evidence, authority, and receipts.</strong><p>The repository built a broad domain and governance vocabulary to make consequential capital actions inspectable.</p></div></li>
+          <li><time>Expansion</time><div><strong>Accumulate protocols, tests, proof surfaces, and workflow structure.</strong><p>The system gained strong components but increasingly risked measuring engineering maturity rather than completing a user decision.</p></div></li>
+          <li><time>July 2026</time><div><strong>Compress governance and documentation around current owners.</strong><p>Duplicate inventories and high-friction gates were removed; current truth moved closer to code, Taskfile, routes, tests, and a few maintained documents.</p></div></li>
+          <li><time>Current</time><div><strong>Prove and use the canonical material-decision journey.</strong><p>Further abstractions should improve actual capital review, recovery, and longitudinal learning rather than recreate deleted ceremony.</p></div></li>
+        </ol>
+      </section>
+
+      <section class="section section-simple" aria-labelledby="open-title">
+        <div class="section-heading"><p class="section-index">Open questions</p><h2 id="open-title">The difficult work now lies in real use, retention, and outcome learning.</h2></div>
+        <div class="question-list"><p>Can the first capital-review journey remain understandable for a user who does not know the internal ontology?</p><p>Which data and scenario inputs are necessary for a real concentration decision—and which add context without improving judgment?</p><p>Can scheduled retrospective review distinguish a good process with a bad outcome from a bad process with a good outcome?</p><p>What evidence would justify moving from simulation toward any narrower form of controlled external capability?</p></div>
+      </section>
+
       <section class="project-links" aria-labelledby="links-title">
-        <div><p class="section-index">Explore</p><h2 id="links-title">Use the current system as the entrypoint.</h2><p>Mutable work belongs to GitHub Issues and pull requests. The current-system document, source, tests, task graph, routes, and models own present capability truth.</p></div>
-        <div class="link-stack"><a href="https://github.com/zycxfyh/FinHarness">Repository <span aria-hidden="true">↗</span></a><a href="https://github.com/zycxfyh/FinHarness/blob/main/docs/current-system.md">Current system <span aria-hidden="true">↗</span></a><a href="https://github.com/zycxfyh/FinHarness/blob/main/docs/product/product-thesis.md">Product thesis <span aria-hidden="true">↗</span></a></div>
+        <div><p class="section-index">Evidence and outputs</p><h2 id="links-title">Start from the current system, then inspect the owning surfaces.</h2><p>The project page gives orientation. Current capability belongs to source, tests, commands, routes, models, and the maintained current-system document.</p></div>
+        <div class="link-stack"><a href="https://github.com/zycxfyh/FinHarness">Repository <span aria-hidden="true">↗</span></a><a href="https://github.com/zycxfyh/FinHarness/blob/main/docs/current-system.md">Current system <span aria-hidden="true">↗</span></a><a href="https://github.com/zycxfyh/FinHarness/blob/main/Taskfile.yml">Canonical commands <span aria-hidden="true">↗</span></a><a href="https://github.com/zycxfyh/FinHarness/blob/main/docs/product/product-thesis.md">Product thesis <span aria-hidden="true">↗</span></a><a href="https://github.com/zycxfyh/FinHarness/issues/277">Material decision review program <span aria-hidden="true">↗</span></a></div>
       </section>
     </main>
 
-    <footer class="site-footer"><div><p>© <span id="year">2026</span> Ordivon</p><p>Capital truth · Human review · Simulated execution</p></div><nav aria-label="Footer navigation"><a href="../../">Home</a><a href="../">Projects</a><a href="../../notes/">Notes</a><a href="../../now/">Current</a><a href="../../about/">About</a></nav></footer>
+    <footer class="site-footer"><div><p>© <span id="year">2026</span> Ordivon</p><p>Capital truth · Human judgment · Review and learning</p></div><nav aria-label="Footer navigation"><a href="../../">Home</a><a href="../">Projects</a><a href="../../notes/">Notes</a><a href="../../now/">Current</a><a href="../../about/">About</a></nav></footer>
   </body>
 </html>
